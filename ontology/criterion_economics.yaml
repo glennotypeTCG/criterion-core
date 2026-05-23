@@ -1,0 +1,14 @@
+schema_version: 0.1.0
+
+fund:
+  target_size_usd: 12000000
+
+portfolio_model:
+  accepted_companies: 90
+  q1_failures: 30
+  q2_failures: 20
+  graduates: 40
+
+investment_model:
+  target_ownership_pct: 0.15
+  first_check_usd: 10000

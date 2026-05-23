@@ -1,14 +1,134 @@
 schema_version: 0.1.0
 
+meta:
+  name: Criterion Core Ontology
+  owner: Criterion Group
+  purpose: Canonical registry of entities, audiences, and system components.
+  status: draft
+  last_updated: 2026-05-22
+
+naming_conventions:
+  ids: snake_case
+  labels: title_case
+  source_of_truth: ontology_files
+
 entities:
   criterion_group:
+    label: Criterion Group
     type: control_plane
+    role: Parent orchestration layer
+    description: >
+      The institutional control plane coordinating signal, capital, build,
+      referral, data, and disclosure systems across the Criterion ecosystem.
 
   fetch_happens:
+    label: FetchHappens
     type: signal_layer
+    role: Independent market validation
+    description: >
+      Independent demand validation system. Runs structured respondent studies
+      without the founder present, reducing politeness bias and turning startup
+      ideas into explicit confirm, kill, or monitor decisions.
+
+  candid_voices:
+    label: CandidVoices
+    type: panel_infrastructure
+    role: Respondent infrastructure
+    description: >
+      Opt-in respondent panel used by FetchHappens to source independent market
+      feedback. Panel members are anonymous by default and may become warm buyer
+      leads only with explicit consent.
 
   swift_vc:
+    label: Swift VC
     type: capital_layer
+    role: First-check capital layer
+    description: >
+      Pre-seed fund that invests after independent demand signal crosses a
+      defined threshold. Swift VC is the dedicated first-check capital layer
+      for opportunities produced by the Criterion system.
 
   axiom_foundry:
+    label: Axiom Foundry
     type: build_layer
+    role: Venture formation and co-build layer
+    description: >
+      Co-build operation that pairs validated briefs with Founders-in-Residence
+      and helps form companies during the earliest 0-to-1 period before spinout.
+
+  signal_database:
+    label: Signal Database
+    type: intelligence_asset
+    role: Accumulating market-signal moat
+    description: >
+      Repository of study outputs, ICP signals, pricing feedback, kill/confirm
+      outcomes, operator patterns, and portfolio outcomes. This is the long-term
+      intelligence asset of the system.
+
+  portfolio_companies:
+    label: Portfolio Companies
+    type: output_layer
+    role: Companies created or funded through the system
+    description: >
+      Companies built on confirmed demand. Portfolio outcomes create proof,
+      improve the signal database, and validate the full operating stack.
+
+  preferred_partners:
+    label: Preferred Partners
+    type: referral_network
+    role: Aggregated partner layer
+    description: >
+      Non-exclusive referral network for incorporation, banking, legal, build
+      stack, cap table support, and later-stage preparation. Referral revenue,
+      where applicable, is disclosed and rule-compliant.
+
+audiences:
+  active_founders:
+    label: Active Founders
+    type: audience
+    disclosure_level: level_2
+    description: >
+      Founders with an idea they intend to build. They use FetchHappens to test
+      demand and may become eligible for Swift VC review or Axiom support.
+
+  idea_only:
+    label: Idea-Only
+    type: audience
+    disclosure_level: level_2
+    description: >
+      Domain experts or operators with a strong idea but no intent to become
+      the primary founder. Confirmed signals may be routed to Axiom Foundry and
+      paired with a Founder-in-Residence.
+
+  failed_founders:
+    label: Failed Founders
+    type: audience
+    disclosure_level: advocate
+    description: >
+      Founders whose ideas did not produce enough signal and who accepted the
+      evidence. They can become referral sources, repeat submitters, panel
+      members, or anonymized case studies.
+
+  limited_partners:
+    label: LPs
+    type: audience
+    disclosure_level: level_3
+    description: >
+      Angels and small family offices evaluating Swift VC. They see the capital
+      thesis, validation standard, governance model, reporting, and fund logic.
+
+  founders_in_residence:
+    label: FIRs
+    type: audience
+    disclosure_level: level_2
+    description: >
+      Experienced operators who build on validated demand. They may receive
+      briefs from idea-only submitters or validate self-generated ideas.
+
+  panel_members:
+    label: Panel Members
+    type: audience
+    disclosure_level: level_1
+    description: >
+      Respondents with relevant lived or professional experience. They see the
+      CandidVoices surface only and do not need visibility into the full system.

@@ -1,4 +1,77 @@
 schema_version: 0.1.0
 
-disclosure:
-  public: true
+meta:
+  purpose: Audience disclosure and progressive visibility rules.
+  status: draft
+
+levels:
+  level_1:
+    label: Surface disclosure
+    description: Audience sees only the specific service surface they interact with.
+
+  level_2:
+    label: Participant disclosure
+    description: Audience sees the relevant signal, build, or capital pathway needed for participation.
+
+  level_3:
+    label: Investor disclosure
+    description: Audience sees fund thesis, governance, validation standards, reporting, and diligence materials.
+
+  advocate:
+    label: Advocate disclosure
+    description: Audience sees referral, retry, and case-study pathways after a no-signal or failed-founder outcome.
+
+audience_rules:
+  panel_members:
+    level: level_1
+    visible_entities:
+      - candid_voices
+    hidden_entities:
+      - swift_vc
+      - axiom_foundry
+      - signal_database
+      - preferred_partners
+
+  active_founders:
+    level: level_2
+    visible_entities:
+      - fetch_happens
+      - swift_vc
+      - axiom_foundry
+      - preferred_partners
+
+  idea_only:
+    level: level_2
+    visible_entities:
+      - fetch_happens
+      - axiom_foundry
+      - founders_in_residence
+
+  founders_in_residence:
+    level: level_2
+    visible_entities:
+      - axiom_foundry
+      - fetch_happens
+      - swift_vc
+      - signal_database
+
+  limited_partners:
+    level: level_3
+    visible_entities:
+      - swift_vc
+      - fetch_happens
+      - signal_database
+      - portfolio_companies
+
+  failed_founders:
+    level: advocate
+    visible_entities:
+      - fetch_happens
+      - candid_voices
+
+rules:
+  full_architecture_visible_by_default: false
+  disclose_referral_relationships: true
+  disclose_data_usage: true
+  panel_data_resale_allowed: false
+  founder_present_during_validation: false

@@ -1,0 +1,138 @@
+schema_version: 0.1.0
+system: criterion_operating_system
+purpose: >
+  Defines the canonical roles, customers, questions, outputs, and handoff
+  responsibilities for each entity in the Criterion ecosystem.
+
+entities:
+  criterion_group:
+    display_name: Criterion Group
+    role: Ecosystem orchestration layer
+    primary_customer_sets:
+      - idea_people
+      - founders
+      - operators
+      - LPs
+      - strategic_partners
+      - follow_on_investors
+    primary_question: Can this system repeatedly manufacture venture-backable companies?
+    owns:
+      - operating_system
+      - cross_entity_governance
+      - portfolio_learning_loops
+      - brand_architecture
+      - system_level_economics
+    canonical_outputs:
+      - master_operating_frame
+      - governance_standards
+      - portfolio_learning_loop
+      - ecosystem_narrative
+
+  fetch_happens:
+    display_name: Fetch Happens
+    role: Market signal engine
+    primary_customer_sets:
+      - idea_people
+      - founders
+      - operators
+      - newcos
+      - criterion_group
+      - swiftvc
+      - axiom_foundry
+    primary_question_for_newcos: Do customers want it?
+    owns:
+      - validation_study_sales
+      - market_signal_collection
+      - customer_discovery
+      - signal_dossier
+      - advance_pause_retest_kill_recommendation
+    does_not_own:
+      - investment_decision
+      - company_formation_decision
+      - long_tail_portfolio_management
+    canonical_outputs:
+      - signal_dossier
+      - validation_event_log
+      - customer_evidence_summary
+      - market_signal_rating
+
+  axiom_foundry:
+    display_name: Axiom Foundry
+    role: Company formation layer
+    primary_customer_sets:
+      - idea_people
+      - founders
+      - newcos
+      - swiftvc
+      - criterion_group
+    primary_question_for_newcos: Can we build it?
+    secondary_question_for_newcos: Can we sell it?
+    owns:
+      - formation_scope
+      - formation_plan
+      - formation_services_delivery
+      - constraint_map
+      - spinout_readiness
+      - graduation_packet
+    does_not_own:
+      - independent_investment_decision
+      - permanent_company_operations
+      - long_tail_exit_outcome
+    canonical_outputs:
+      - formation_plan
+      - product_and_gtm_plan
+      - investor_narrative
+      - graduation_packet
+
+  swiftvc:
+    display_name: SwiftVC
+    role: Embedded first-check capital layer
+    primary_customer_sets:
+      - LPs
+      - idea_people
+      - founders
+      - newcos
+      - follow_on_investors
+    primary_question: Is this worth funding, and can SwiftVC own enough of the upside?
+    owns:
+      - fundraise
+      - investment_screening
+      - investment_memo
+      - term_sheet_intent
+      - investment_documents
+      - portfolio_management
+      - ownership_retention
+      - LP_reporting
+    does_not_own:
+      - market_signal_collection
+      - foundry_service_delivery
+      - day_to_day_newco_operations
+    canonical_outputs:
+      - investment_memo
+      - term_sheet
+      - portfolio_update
+      - reserve_decision
+      - LP_report
+
+  newco:
+    display_name: NewCo
+    role: Formed startup
+    primary_customer_sets:
+      - end_customers
+      - early_users
+      - design_partners
+      - follow_on_investors
+      - strategic_partners
+    primary_question: Can the company answer all three questions in market?
+    owns:
+      - customer_learning
+      - product_execution
+      - sales_execution
+      - fundraising
+      - operating_company_results
+    canonical_outputs:
+      - market_progress
+      - product_progress
+      - revenue_progress
+      - financing_progress
+      - company_outcome

@@ -1,0 +1,42 @@
+schema_version: 0.1.0
+
+meta:
+  purpose: Map source artifact identifiers to canonical ontology identifiers.
+  status: draft
+
+aliases:
+  swiftVC: swift_vc
+  fetchH: fetch_happens
+  candid: candid_voices
+  axiom: axiom_foundry
+  signalDB: signal_database
+  portfolio: portfolio_companies
+  partners: preferred_partners
+  founders: active_founders
+  ideaOnly: idea_only
+  failed: failed_founders
+  lps: limited_partners
+  firs: founders_in_residence
+  panel: panel_members
+
+simulator_fields:
+  ideas: funnel.ideas_tested
+  signalRate: funnel.signal_rate_pct
+  offerRate: funnel.offer_rate_pct
+  acceptRate: funnel.accept_rate_pct
+  q1FailPct: funnel.q1_failure_pct
+  q2FailPct: funnel.q2_failure_pct
+  studyFeeK: capital_requirements.study_fee_k
+  fetchMarginPct: unit_economics.fetch_margin_pct
+  axiomMonthlyK: unit_economics.axiom_monthly_revenue_k
+  axiomMonths: unit_economics.axiom_average_duration_months
+  axiomMarginPct: unit_economics.axiom_margin_pct
+  fundSizeM: fund_structure.fund_size_m
+  mgmtFeePct: fund_structure.management_fee_pct
+  carryPct: fund_structure.carry_pct
+  fundLife: fund_structure.fund_life_years
+  q1CapK: capital_requirements.q1_capital_k
+  q2CapK: capital_requirements.q2_capital_k
+  gradCapK: capital_requirements.graduation_capital_k
+  exitOwnerPct: fund_structure.target_exit_ownership_pct
+  discountRate: fund_structure.discount_rate_pct

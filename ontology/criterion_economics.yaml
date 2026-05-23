@@ -1,14 +1,58 @@
 schema_version: 0.1.0
 
-fund:
-  target_size_usd: 12000000
+meta:
+  purpose: Canonical economic assumptions for the Criterion simulator.
+  source: criterion-group-simulator_2.jsx
 
-portfolio_model:
-  accepted_companies: 90
-  q1_failures: 30
-  q2_failures: 20
-  graduates: 40
+funnel:
+  ideas_tested: 1000
+  signal_rate_pct: 25
+  offer_rate_pct: 60
+  accept_rate_pct: 60
+  q1_failure_pct: 33.3
+  q2_failure_pct: 33.3
 
-investment_model:
-  target_ownership_pct: 0.15
-  first_check_usd: 10000
+capital_requirements:
+  study_fee_k: 5
+  q1_capital_k: 50
+  q2_capital_k: 100
+  graduation_capital_k: 150
+
+unit_economics:
+  fetch_margin_pct: 40
+  axiom_monthly_revenue_k: 12
+  axiom_average_duration_months: 6.3
+  axiom_margin_pct: 25
+
+fund_structure:
+  fund_size_m: 12
+  management_fee_pct: 2
+  carry_pct: 20
+  fund_life_years: 10
+  target_exit_ownership_pct: 6
+  discount_rate_pct: 10
+
+exit_pool:
+  failed_exit_count: 20
+  small_exit_count: 10
+  small_exit_value_m: 5
+  strong_exit_count: 7
+  strong_exit_value_m: 25
+  breakout_exit_count: 3
+  breakout_exit_value_m: 250
+
+subsidy_model:
+  enabled: false
+  buckets_k:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+
+scenarios:
+  base:
+    multiplier: 1.0
+
+  stronger:
+    multiplier: 1.23

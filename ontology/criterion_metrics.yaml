@@ -1,0 +1,11 @@
+schema_version: 0.1.0
+
+metrics:
+  signal_strength:
+    description: composite validation confidence score
+
+  graduation_rate:
+    formula: graduates / accepted_companies
+
+  lp_moic:
+    formula: distributions / paid_in_capital

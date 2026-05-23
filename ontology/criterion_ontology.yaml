@@ -1,0 +1,14 @@
+schema_version: 0.1.0
+
+entities:
+  criterion_group:
+    type: control_plane
+
+  fetch_happens:
+    type: signal_layer
+
+  swift_vc:
+    type: capital_layer
+
+  axiom_foundry:
+    type: build_layer

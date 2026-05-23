@@ -1,9 +1,638 @@
-SOURCE ARTIFACT PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criterion Group - System Architecture</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-Original uploaded artifact: criterion-group-system-map.html
+body {
+  background: #070B17;
+  color: #D8DDE8;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, 'Courier New', monospace;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-This placeholder exists because the actual file was available in the chat runtime but not directly retrievable by the GitHub connector at the moment of commit.
+#header {
+  padding: 13px 24px 11px;
+  border-bottom: 1px solid #1C2540;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  background: #0E1322;
+}
+#header h1 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #C9A84C;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+#header .meta {
+  font-size: 9px;
+  color: #3A4A6A;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
-Action required: replace this placeholder with the full HTML source from the uploaded artifact.
+#controls {
+  padding: 8px 24px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border-bottom: 1px solid #1C2540;
+  background: #0B101E;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.ctrl-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #3A4A6A;
+  margin-right: 3px;
+}
+.sep { width: 1px; height: 16px; background: #1C2540; margin: 0 3px; flex-shrink: 0; }
 
-Known purpose: interactive Criterion Group system architecture map containing nodes, flows, audience journeys, disclosure levels, and visual layer controls.
+.lbtn {
+  padding: 4px 11px;
+  border-radius: 3px;
+  border: 1px solid #1C2540;
+  background: transparent;
+  color: #4A5A7A;
+  font-family: inherit;
+  font-size: 9.5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.04em;
+}
+.lbtn:hover { border-color: #5A6A8A; color: #D8DDE8; }
+.lbtn.act-all  { border-color: #5A6A8A; color: #D8DDE8; background: rgba(255,255,255,0.04); }
+.lbtn.act-form { border-color: #E8961E; color: #E8961E; background: rgba(232,150,30,0.08); }
+.lbtn.act-cap  { border-color: #4A8EE8; color: #4A8EE8; background: rgba(74,142,232,0.08); }
+.lbtn.act-data { border-color: #9B51E0; color: #9B51E0; background: rgba(155,81,224,0.08); }
+.lbtn.act-ref  { border-color: #2EC99A; color: #2EC99A; background: rgba(46,201,154,0.08); }
+.lbtn.act-aud  { border-color: #7A90B8; color: #7A90B8; background: rgba(122,144,184,0.08); }
+
+#aud-bar {
+  padding: 7px 24px;
+  display: none;
+  gap: 5px;
+  align-items: center;
+  border-bottom: 1px solid #1C2540;
+  background: #090D1B;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+#aud-bar.show { display: flex; }
+
+.abtn {
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid rgba(122,144,184,0.2);
+  background: transparent;
+  color: rgba(122,144,184,0.4);
+  font-family: inherit;
+  font-size: 9px;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.04em;
+}
+.abtn:hover { border-color: #7A90B8; color: #7A90B8; }
+.abtn.on { border-color: #7A90B8; color: #D8DDE8; background: rgba(122,144,184,0.1); }
+
+#svg-wrap {
+  flex: 1;
+  position: relative;
+  background: #070B17;
+  min-height: 480px;
+}
+
+#diag {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+}
+
+#tip {
+  position: absolute;
+  background: #111829;
+  border: 1px solid #24305A;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 10px;
+  line-height: 1.6;
+  max-width: 240px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s;
+  z-index: 99;
+  top: 0; left: 0;
+}
+#tip.show { opacity: 1; }
+#tip-name { font-weight: 600; color: #D8DDE8; margin-bottom: 3px; font-size: 11px; }
+#tip-role { color: #C9A84C; font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+#tip-desc { color: #7A90B8; font-size: 9.5px; line-height: 1.55; }
+
+#legend {
+  padding: 8px 24px;
+  display: flex;
+  gap: 16px;
+  border-top: 1px solid #1C2540;
+  background: #0E1322;
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.li { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #3A4A6A; }
+.li-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.ml { margin-left: auto; font-size: 9px; color: #2E3A50; }
+
+@keyframes flow {
+  from { stroke-dashoffset: 18; }
+  to   { stroke-dashoffset: 0; }
+}
+.animated {
+  stroke-dasharray: 5 3;
+  animation: flow 1.6s linear infinite;
+}
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>Criterion Group</h1>
+  <span class="meta">System Architecture - Internal Control Plane - Disclosure Level 4</span>
+</div>
+
+<div id="controls">
+  <span class="ctrl-label">View</span>
+  <button class="lbtn" data-l="all">All Flows</button>
+  <div class="sep"></div>
+  <button class="lbtn" data-l="form">Formation Chain</button>
+  <button class="lbtn" data-l="cap">Capital Flows</button>
+  <button class="lbtn" data-l="data">Data Flows</button>
+  <button class="lbtn" data-l="ref">Referral Layer</button>
+  <div class="sep"></div>
+  <button class="lbtn" data-l="aud">Audience Journeys</button>
+</div>
+
+<div id="aud-bar">
+  <span class="ctrl-label" style="font-size:9px;color:#3A4A6A">Journey:</span>
+  <button class="abtn" data-a="founders">Active Founders</button>
+  <button class="abtn" data-a="ideaOnly">Idea-Only</button>
+  <button class="abtn" data-a="failed">Failed Founders</button>
+  <button class="abtn" data-a="lps">LPs</button>
+  <button class="abtn" data-a="firs">FIRs</button>
+  <button class="abtn" data-a="panel">Panel Members</button>
+</div>
+
+<div id="svg-wrap">
+  <svg id="diag" viewBox="0 0 1180 580" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+  <div id="tip">
+    <div id="tip-name"></div>
+    <div id="tip-role"></div>
+    <div id="tip-desc"></div>
+  </div>
+</div>
+
+<div id="legend">
+  <div class="li"><div class="li-dot" style="background:#E8961E"></div>Formation Chain</div>
+  <div class="li"><div class="li-dot" style="background:#4A8EE8"></div>Capital Flows</div>
+  <div class="li"><div class="li-dot" style="background:#9B51E0"></div>Data Flows</div>
+  <div class="li"><div class="li-dot" style="background:#2EC99A"></div>Referral Layer</div>
+  <div class="li" style="margin-left:10px">
+    <div style="width:9px;height:9px;border:1.5px solid #C9A84C;border-radius:50%"></div>
+    Entities
+  </div>
+  <div class="li">
+    <div style="width:9px;height:9px;border:1px dashed #4A5A7A;border-radius:50%"></div>
+    Audiences
+  </div>
+  <span class="ml">Hover nodes for detail - Click layer buttons to filter flows</span>
+</div>
+
+<script>
+// -- NODE DEFINITIONS ---------------------------------------------------------
+const NODES = {
+  // Entities
+  swiftVC:   { x:590, y:295, r:52, t:'ent', color:'#C9A84C', fill:'#14100A',
+               name:'Swift VC', role:'Capital Layer - The Studio',
+               desc:'Pre-seed fund. Invests after independent demand signal crosses a published threshold. No pitch-theater calls - report only. 72-hour decision target. The check is the movie everything else orbits.' },
+  fetchH:    { x:295, y:185, r:42, t:'ent', color:'#E8961E', fill:'#160D02',
+               name:'FetchHappens', role:'Signal Layer',
+               desc:'Independent demand validation. 12-20 structured respondent conversations. No founder present - politeness bias eliminated. The study fee is a conviction filter. Confirms or kills signal before capital is deployed.' },
+  candid:    { x:168, y:400, r:38, t:'ent', color:'#1BBFA5', fill:'#021815',
+               name:'CandidVoices', role:'Panel Infrastructure',
+               desc:'Independent respondent panel. Anonymous by default. Opt-in only - respondents who confirm demand and consent become the first warm customer list for the company that gets built. Powers every FetchHappens study.' },
+  axiom:     { x:845, y:178, r:42, t:'ent', color:'#FF6B4A', fill:'#180702',
+               name:'Axiom Foundry', role:'Build Layer',
+               desc:'Co-build operation. Pairs validated briefs with Founders-in-Residence. Parent to companies for 0-6 months. Pays subscriptions, holds vendor relationships. Spin-out checklist triggers referral reset at independence.' },
+  signalDB:  { x:550, y:480, r:36, t:'ent', color:'#9B51E0', fill:'#100A1A',
+               name:'Signal Database', role:'Accumulating Moat - CG Owned',
+               desc:'Every FetchHappens study adds data: ICP profile, signal strength, price points, kill/confirm outcome. Feeds Swift VC thesis development, Axiom FIR placement decisions, and the quarterly Signal Report.' },
+  portfolio: { x:985, y:295, r:42, t:'ent', color:'#3DBF6E', fill:'#031407',
+               name:'Portfolio Cos.', role:'Output - The Movies',
+               desc:'Companies built on confirmed demand. Repeat FetchHappens customers. CandidVoices research clients. CG trust proof-points. Each portfolio company validates the full stack and makes the system more credible.' },
+  partners:  { x:825, y:480, r:35, t:'zone', color:'#2EC99A', fill:'#031410',
+               name:'Preferred Partners', role:'Referral Network - CG Aggregated',
+               desc:'Incorporation, banking, legal, build stack, cap table, Series A prep. All disclosed, non-exclusive. CG earns eligible referral revenue post-spinout. Legal referrals subject to applicable bar rules by jurisdiction.' },
+
+  // Audiences
+  founders:  { x:72,  y:158, r:26, t:'aud', color:'#7A90B8', fill:'#070B17',
+               name:'Active Founders', role:'Audience - Disclosure Level 1->2',
+               desc:'Founders with an idea to build. Fund their own validation study. Confirmed signal -> Swift VC review eligible. Confirmed + want co-build -> Axiom Foundry path. No signal -> saved from a costly mistake.' },
+  ideaOnly:  { x:72,  y:308, r:26, t:'aud', color:'#7A90B8', fill:'#070B17',
+               name:'Idea-Only', role:'Audience - Disclosure Level 1->2',
+               desc:'Domain experts who see a gap but won\'t build. Identical FetchHappens process. Confirmed signal -> participation agreement -> Axiom FIR builds it -> equity stake on early-leaver vesting model.' },
+  failed:    { x:75,  y:455, r:24, t:'aud', color:'#7A90B8', fill:'#070B17',
+               name:'Failed Founders', role:'Audience - Most Credible Advocates',
+               desc:'Received no signal and accepted it as true. Refer the next founder. Return with better ideas. Join CandidVoices panel. Become anonymized case studies - the most powerful trust content in the system.' },
+  lps:       { x:500, y:55,  r:26, t:'aud', color:'#7A90B8', fill:'#070B17',
+               name:'LPs', role:'Audience - Disclosure Level 3',
+               desc:'Angels and small family offices. See Swift VC investment thesis, validation standard, and governance only - not the full CG architecture unless in diligence. Operator networks refer founders to FetchHappens.' },
+  firs:      { x:882, y:55,  r:26, t:'aud', color:'#7A90B8', fill:'#070B17',
+               name:'FIRs', role:'Audience - Disclosure Level 2',
+               desc:'Founders-in-Residence. Experienced operators who want to build on confirmed demand. Recruited directly. Two brief sources: FetchHappens exits where the submitter won\'t build, and self-generated ideas they validate.' },
+  panel:     { x:62,  y:540, r:24, t:'aud', color:'#7A90B8', fill:'#070B17',
+               name:'Panel Members', role:'Audience - CandidVoices Only (Level 1)',
+               desc:'People with relevant lived experience. Anonymous by default. Short by design. No spam, no data resale. Contact only with explicit opt-in. See CandidVoices only - never the full CG system.' },
+};
+
+// -- CONNECTION DEFINITIONS --------------------------------------------------
+// l = layer: form | cap | data | ref
+// aud = audience keys this connection illuminates
+// cd = curve direction multiplier
+const CONNS = [
+  // Formation
+  { id:'f1',  fr:'founders',  to:'fetchH',   l:'form', cd:-0.3,  lbl:'submit + fund study',      aud:['founders'] },
+  { id:'f2',  fr:'ideaOnly',  to:'fetchH',   l:'form', cd: 0.3,  lbl:'submit + fund study',      aud:['ideaOnly'] },
+  { id:'f3',  fr:'candid',    to:'fetchH',   l:'form', cd:-0.5,  lbl:'panel enables studies',    aud:['panel'] },
+  { id:'f4',  fr:'fetchH',    to:'swiftVC',  l:'form', cd:-0.4,  lbl:'validated deal flow',      aud:['founders','ideaOnly'] },
+  { id:'f5',  fr:'fetchH',    to:'axiom',    l:'form', cd:-0.35, lbl:'signal without builder',   aud:['ideaOnly','founders'] },
+  { id:'f6',  fr:'axiom',     to:'swiftVC',  l:'form', cd:-0.4,  lbl:'better companies',         aud:['founders','ideaOnly','firs'] },
+  { id:'f7',  fr:'swiftVC',   to:'portfolio',l:'form', cd:-0.25, lbl:'the check',                aud:['founders','ideaOnly','firs'] },
+  { id:'f8',  fr:'failed',    to:'fetchH',   l:'form', cd: 0.5,  lbl:'referral / return',        aud:['failed'] },
+  { id:'f9',  fr:'firs',      to:'axiom',    l:'form', cd: 0.3,  lbl:'execution capability',     aud:['firs'] },
+  { id:'f10', fr:'firs',      to:'fetchH',   l:'form', cd:-0.45, lbl:'self-generated ideas',     aud:['firs'] },
+  // Capital
+  { id:'c1',  fr:'lps',       to:'swiftVC',  l:'cap',  cd: 0.3,  lbl:'capital',                  aud:['lps'] },
+  { id:'c2',  fr:'swiftVC',   to:'portfolio',l:'cap',  cd: 0.28, lbl:'the check',                aud:['founders','firs'] },
+  { id:'c3',  fr:'swiftVC',   to:'fetchH',   l:'cap',  cd: 0.45, lbl:'credibility flow',         aud:['founders'] },
+  { id:'c4',  fr:'lps',       to:'fetchH',   l:'cap',  cd:-0.35, lbl:'network referrals',        aud:['lps'] },
+  { id:'c5',  fr:'portfolio', to:'swiftVC',  l:'cap',  cd: 0.4,  lbl:'returns (long arc)',       aud:['lps'] },
+  { id:'c6',  fr:'swiftVC',   to:'lps',      l:'cap',  cd:-0.28, lbl:'distributions + reporting',aud:['lps'] },
+  // Data
+  { id:'d1',  fr:'fetchH',    to:'signalDB', l:'data', cd: 0.4,  lbl:'every study',              aud:[] },
+  { id:'d2',  fr:'candid',    to:'signalDB', l:'data', cd: 0.45, lbl:'panel response data',      aud:[] },
+  { id:'d3',  fr:'signalDB',  to:'swiftVC',  l:'data', cd:-0.5,  lbl:'thesis intelligence',      aud:[] },
+  { id:'d4',  fr:'signalDB',  to:'axiom',    l:'data', cd: 0.38, lbl:'FIR placement intel',      aud:['firs'] },
+  { id:'d5',  fr:'portfolio', to:'signalDB', l:'data', cd:-0.4,  lbl:'outcomes data',            aud:[] },
+  // Referral
+  { id:'r1',  fr:'fetchH',    to:'partners', l:'ref',  cd: 0.45, lbl:'incorporation moment',     aud:['founders','ideaOnly'] },
+  { id:'r2',  fr:'axiom',     to:'partners', l:'ref',  cd: 0.3,  lbl:'build stack (post-spinout)',aud:['founders','firs'] },
+  { id:'r3',  fr:'swiftVC',   to:'partners', l:'ref',  cd: 0.5,  lbl:'capital stack',            aud:['founders','firs'] },
+  { id:'r4',  fr:'portfolio', to:'fetchH',   l:'ref',  cd: 0.45, lbl:'repeat customers',         aud:['founders'] },
+  { id:'r5',  fr:'portfolio', to:'candid',   l:'ref',  cd:-0.4,  lbl:'research clients',         aud:['founders'] },
+  { id:'r6',  fr:'candid',    to:'portfolio',l:'ref',  cd: 0.4,  lbl:'opt-in buyer list',        aud:['panel','founders'] },
+  { id:'r7',  fr:'failed',    to:'candid',   l:'ref',  cd: 0.35, lbl:'join panel',               aud:['failed'] },
+];
+
+const LAYER_COLORS = {
+  form: '#E8961E',
+  cap:  '#4A8EE8',
+  data: '#9B51E0',
+  ref:  '#2EC99A',
+  aud:  '#7A90B8',
+};
+
+// -- SVG UTILITIES -----------------------------------------------------------
+const NS = 'http://www.w3.org/2000/svg';
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [a, v] of Object.entries(attrs)) {
+    e.setAttribute(a, String(v));
+  }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function curvePath(fKey, tKey, cd) {
+  const f = NODES[fKey], t = NODES[tKey];
+  const dx = t.x - f.x, dy = t.y - f.y;
+  const len = Math.hypot(dx, dy) || 1;
+  const ux = dx / len, uy = dy / len;
+  const nx = -uy, ny = ux;
+  const sx = f.x + ux * (f.r + 4), sy = f.y + uy * (f.r + 4);
+  const ex = t.x - ux * (t.r + 12), ey = t.y - uy * (t.r + 12);
+  const bend = cd * len * 0.25;
+  const c1x = (sx * 2 + ex) / 3 + nx * bend;
+  const c1y = (sy * 2 + ey) / 3 + ny * bend;
+  const c2x = (sx + ex * 2) / 3 + nx * bend;
+  const c2y = (sy + ey * 2) / 3 + ny * bend;
+  return `M${sx.toFixed(1)},${sy.toFixed(1)} C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${ex.toFixed(1)},${ey.toFixed(1)}`;
+}
+
+function midPoint(fKey, tKey, cd) {
+  const f = NODES[fKey], t = NODES[tKey];
+  const dx = t.x - f.x, dy = t.y - f.y;
+  const len = Math.hypot(dx, dy) || 1;
+  const ux = dx / len, uy = dy / len;
+  const nx = -uy, ny = ux;
+  const bend = cd * len * 0.25;
+  const mx = (f.x + t.x) / 2 + nx * bend;
+  const my = (f.y + t.y) / 2 + ny * bend;
+  return { x: mx, y: my };
+}
+
+// -- BUILD THE SVG -----------------------------------------------------------
+function buildDiagram() {
+  const svg = document.getElementById('diag');
+
+  // defs
+  const defs = el('defs', {}, svg);
+
+  // dot grid
+  const pat = el('pattern', { id:'dots', x:'0', y:'0', width:'24', height:'24', patternUnits:'userSpaceOnUse' }, defs);
+  el('circle', { cx:'0', cy:'0', r:'0.6', fill:'#131B30' }, pat);
+
+  // arrow markers
+  const markerLayers = ['form','cap','data','ref','aud','ghost'];
+  const markerColors = { form:'#E8961E', cap:'#4A8EE8', data:'#9B51E0', ref:'#2EC99A', aud:'#7A90B8', ghost:'#1A2540' };
+  for (const lyr of markerLayers) {
+    const mk = el('marker', { id:`mk-${lyr}`, markerWidth:'8', markerHeight:'6', refX:'7', refY:'3', orient:'auto' }, defs);
+    el('polygon', { points:'0 0, 8 3, 0 6', fill: markerColors[lyr], opacity: lyr === 'ghost' ? '0.4' : '0.9' }, mk);
+  }
+
+  // background
+  el('rect', { x:'0', y:'0', width:'1180', height:'580', fill:'#070B17' }, svg);
+  el('rect', { x:'0', y:'0', width:'1180', height:'580', fill:'url(#dots)' }, svg);
+
+  // CG outer ring
+  el('rect', { x:'18', y:'14', width:'1144', height:'552', rx:'8', fill:'none',
+    stroke:'#C9A84C', 'stroke-width':'1', 'stroke-dasharray':'12 6', opacity:'0.4' }, svg);
+  el('rect', { x:'20', y:'9', width:'150', height:'14', rx:'2', fill:'#070B17' }, svg);
+  const cgLabel = el('text', { x:'30', y:'20', fill:'#C9A84C', 'font-size':'9',
+    'font-family':'monospace', 'letter-spacing':'0.18em', 'font-weight':'600' }, svg);
+  cgLabel.textContent = 'CRITERION GROUP';
+
+  // Source of truth band
+  el('rect', { x:'30', y:'542', width:'1120', height:'20', rx:'3',
+    fill:'#090D1B', stroke:'#1C2540', 'stroke-width':'0.5', opacity:'0.8' }, svg);
+  const sotItems = ['Signal Report (Quarterly)','/ Decisions Page','Methodology Library','Meetup Series'];
+  sotItems.forEach((txt, i) => {
+    const tx = el('text', { x: String(170 + i * 245), y:'555', fill:'#2E3A50',
+      'font-size':'8', 'font-family':'monospace', 'text-anchor':'middle' }, svg);
+    tx.textContent = txt;
+    if (i < sotItems.length - 1) {
+      el('line', { x1: String(265 + i * 245), y1:'542', x2: String(265 + i * 245), y2:'562',
+        stroke:'#161E35', 'stroke-width':'0.5' }, svg);
+    }
+  });
+  const sotLbl = el('text', { x:'32', y:'537', fill:'#2E3A50', 'font-size':'7',
+    'font-family':'monospace', 'letter-spacing':'0.2em' }, svg);
+  sotLbl.textContent = 'SOURCE OF TRUTH LAYER';
+
+  // Swift VC pulse rings (center indicator)
+  const sv = NODES.swiftVC;
+  el('circle', { cx:sv.x, cy:sv.y, r:sv.r + 18, fill:'none',
+    stroke:'#C9A84C', 'stroke-width':'0.5', opacity:'0.1' }, svg);
+  el('circle', { cx:sv.x, cy:sv.y, r:sv.r + 34, fill:'none',
+    stroke:'#C9A84C', 'stroke-width':'0.3', opacity:'0.05' }, svg);
+
+  // Ghost connections (always visible at low opacity)
+  const ghostG = el('g', { id:'ghost-group' }, svg);
+  // Active connections (toggled)
+  const activeG = el('g', { id:'active-group' }, svg);
+  // Labels
+  const labelG = el('g', { id:'label-group' }, svg);
+
+  for (const conn of CONNS) {
+    const d = curvePath(conn.fr, conn.to, conn.cd);
+    const mp = midPoint(conn.fr, conn.to, conn.cd);
+
+    // Ghost path
+    el('path', {
+      id: `ghost-${conn.id}`,
+      d, fill:'none', stroke:'#1A2848',
+      'stroke-width':'0.8', opacity:'0.4',
+      'marker-end':'url(#mk-ghost)',
+    }, ghostG);
+
+    // Active path
+    el('path', {
+      id: `conn-${conn.id}`,
+      d, fill:'none',
+      stroke: LAYER_COLORS[conn.l],
+      'stroke-width':'2', opacity:'0',
+      'marker-end': `url(#mk-${conn.l})`,
+    }, activeG);
+
+    // Label
+    const lbl = el('text', {
+      id: `lbl-${conn.id}`,
+      x: String(mp.x), y: String(mp.y),
+      fill: LAYER_COLORS[conn.l],
+      'font-size':'7.5', 'font-family':'monospace',
+      'text-anchor':'middle', opacity:'0',
+      'pointer-events':'none',
+    }, labelG);
+    lbl.textContent = conn.lbl;
+  }
+
+  // Nodes
+  const nodeG = el('g', { id:'node-group' }, svg);
+
+  for (const [key, nd] of Object.entries(NODES)) {
+    const g = el('g', {
+      id: `node-${key}`,
+      transform: `translate(${nd.x},${nd.y})`,
+      cursor: 'pointer',
+    }, nodeG);
+
+    // Halo
+    el('circle', { r: String(nd.r + 12), fill: nd.color, opacity:'0.06' }, g);
+
+    if (nd.t === 'aud') {
+      el('circle', { r: String(nd.r), fill: '#070B17', stroke: nd.color,
+        'stroke-width':'1.2', 'stroke-dasharray':'4 2.5', opacity:'0.75' }, g);
+    } else if (nd.t === 'zone') {
+      el('circle', { r: String(nd.r + 5), fill:'none', stroke: nd.color,
+        'stroke-width':'0.4', opacity:'0.15' }, g);
+      el('circle', { r: String(nd.r), fill: nd.fill, stroke: nd.color,
+        'stroke-width':'1.5', 'stroke-dasharray':'7 3', opacity:'0.85' }, g);
+    } else {
+      el('circle', { r: String(nd.r + 6), fill:'none', stroke: nd.color,
+        'stroke-width':'0.4', opacity:'0.18' }, g);
+      el('circle', { r: String(nd.r), fill: nd.fill, stroke: nd.color,
+        'stroke-width':'2', opacity:'0.95' }, g);
+    }
+
+    // Text
+    const small = nd.r < 30;
+    const isEnt = nd.t === 'ent';
+    const fillColor = nd.t === 'aud' ? '#5A6A8A' : '#D8DDE8';
+    const fw = isEnt ? '500' : '400';
+    const fs = isEnt ? (key === 'swiftVC' ? '11.5' : '10') : '9';
+
+    const words = nd.name.split(' ');
+    if (small && words.length >= 2) {
+      const t = el('text', { 'text-anchor':'middle', 'font-family':'monospace',
+        'font-size':'8.5', fill: fillColor, 'font-weight': fw, 'pointer-events':'none' }, g);
+      const ts1 = el('tspan', { x:'0', dy:'-6' }, t);
+      ts1.textContent = words[0];
+      const ts2 = el('tspan', { x:'0', dy:'13' }, t);
+      ts2.textContent = words.slice(1).join(' ');
+    } else {
+      const yOff = isEnt ? '-6' : '0';
+      const t = el('text', { y: yOff, 'text-anchor':'middle', 'dominant-baseline':'middle',
+        'font-family':'monospace', 'font-size': fs,
+        fill: fillColor, 'font-weight': fw, 'pointer-events':'none' }, g);
+      t.textContent = nd.name;
+    }
+
+    if (isEnt) {
+      const sub = nd.role.split('-')[0].trim().split(' ').slice(0, 2).join(' ');
+      const st = el('text', { y:'8', 'text-anchor':'middle', 'dominant-baseline':'middle',
+        'font-family':'monospace', 'font-size':'7',
+        fill: nd.color, opacity:'0.7', 'pointer-events':'none' }, g);
+      st.textContent = sub;
+    }
+
+    // Tooltip
+    g.addEventListener('mouseenter', e => onEnter(e, nd));
+    g.addEventListener('mousemove', onMove);
+    g.addEventListener('mouseleave', onLeave);
+  }
+}
+
+// -- TOOLTIP -----------------------------------------------------------------
+const tip = document.getElementById('tip');
+const wrap = document.getElementById('svg-wrap');
+
+function onEnter(e, nd) {
+  document.getElementById('tip-name').textContent = nd.name;
+  document.getElementById('tip-role').textContent = nd.role;
+  document.getElementById('tip-desc').textContent = nd.desc;
+  tip.classList.add('show');
+  positionTip(e);
+}
+function onMove(e) { positionTip(e); }
+function onLeave() { tip.classList.remove('show'); }
+
+function positionTip(e) {
+  const r = wrap.getBoundingClientRect();
+  let x = e.clientX - r.left + 14;
+  let y = e.clientY - r.top - 10;
+  if (x + 250 > r.width) x = e.clientX - r.left - 256;
+  if (y + 130 > r.height) y = e.clientY - r.top - 136;
+  if (x < 0) x = 4;
+  if (y < 0) y = 4;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
+
+// -- LAYER CONTROL -----------------------------------------------------------
+let activeLayer = 'all';
+let activeAud = null;
+
+function applyLayer(l) {
+  activeLayer = l;
+  activeAud = null;
+
+  document.querySelectorAll('.lbtn').forEach(b => {
+    b.className = 'lbtn';
+    if (b.dataset.l === l) b.classList.add('act-' + l);
+  });
+  document.querySelectorAll('.abtn').forEach(b => b.classList.remove('on'));
+
+  const audBar = document.getElementById('aud-bar');
+  if (l === 'aud') {
+    audBar.classList.add('show');
+  } else {
+    audBar.classList.remove('show');
+  }
+
+  render();
+}
+
+function applyAud(a) {
+  activeAud = a;
+  document.querySelectorAll('.abtn').forEach(b => {
+    b.classList.toggle('on', b.dataset.a === a);
+  });
+  render();
+}
+
+function render() {
+  for (const conn of CONNS) {
+    const cEl = document.getElementById(`conn-${conn.id}`);
+    const lEl = document.getElementById(`lbl-${conn.id}`);
+    const gEl = document.getElementById(`ghost-${conn.id}`);
+    if (!cEl) continue;
+
+    // Reset
+    cEl.style.opacity = '0';
+    cEl.classList.remove('animated');
+    if (lEl) lEl.style.opacity = '0';
+    if (gEl) gEl.style.opacity = activeLayer === 'all' ? '0.4' : '0.06';
+
+    if (activeLayer === 'all') {
+      // Only ghost lines shown
+    } else if (activeLayer === 'aud') {
+      if (activeAud && conn.aud.includes(activeAud)) {
+        cEl.style.opacity = '0.9';
+        cEl.classList.add('animated');
+        if (lEl) lEl.style.opacity = '0.65';
+        if (gEl) gEl.style.opacity = '0.03';
+      } else {
+        cEl.style.opacity = '0';
+        if (gEl) gEl.style.opacity = activeAud ? '0.03' : '0.1';
+      }
+    } else {
+      if (conn.l === activeLayer) {
+        cEl.style.opacity = '0.88';
+        cEl.classList.add('animated');
+        if (lEl) lEl.style.opacity = '0.6';
+        if (gEl) gEl.style.opacity = '0.03';
+      } else {
+        cEl.style.opacity = '0';
+        if (gEl) gEl.style.opacity = '0.04';
+      }
+    }
+  }
+
+  // Audience node highlight
+  for (const key of ['founders','ideaOnly','failed','lps','firs','panel']) {
+    const nd = NODES[key];
+    const g = document.getElementById(`node-${key}`);
+    if (!g || !nd) continue;
+    if (activeLayer === 'aud' && activeAud === key) {
+      g.setAttribute('transform', `translate(${nd.x},${nd.y}) scale(1.1)`);
+    } else {
+      g.setAttribute('transform', `translate(${nd.x},${nd.y})`);
+    }
+  }
+}
+
+// -- INIT --------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+  buildDiagram();
+  applyLayer('all');
+
+  document.querySelectorAll('.lbtn').forEach(b => {
+    b.addEventListener('click', () => applyLayer(b.dataset.l));
+  });
+  document.querySelectorAll('.abtn').forEach(b => {
+    b.addEventListener('click', () => applyAud(b.dataset.a));
+  });
+});
+</script>
+</body>
+</html>

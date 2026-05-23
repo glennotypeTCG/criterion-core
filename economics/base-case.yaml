@@ -1,0 +1,129 @@
+schema_version: 0.1.0
+namespace: criterion_core.economics.base_case
+public_safety: >
+  This file is intentionally public-safe. It defines the economic structure and
+  variables, not confidential fund terms, private LP information, live deal data,
+  or non-public portfolio assumptions.
+
+purpose: >
+  Defines the economic system that connects SwiftVC capital, Axiom Foundry
+  services, NewCo formation, portfolio outcomes, and Criterion-level learning.
+
+core_bet: >
+  A fixed pool of capital can create better outcomes when deployed into companies
+  formed through a disciplined signal-first formation system rather than sourced
+  only from the open market.
+
+layers:
+  - id: swiftvc
+    role: fund_capital_layer
+    economic_function:
+      - raise_capital
+      - deploy_first_check_capital
+      - secure_early_ownership
+      - manage_reserves
+      - support_follow_on_financing
+      - report_to_LPs
+      - return_capital
+
+  - id: axiom_foundry
+    role: formation_services_layer
+    economic_function:
+      - convert_capital_into_formation_progress
+      - improve_company_quality
+      - reduce_formation_risk
+      - prepare_spinout
+      - improve_follow_on_fundability
+
+  - id: newcos
+    role: portfolio_company_layer
+    economic_function:
+      - validate_market
+      - build_product
+      - sell_to_customers
+      - raise_follow_on_capital
+      - fail_fast_or_compound
+      - create_enterprise_value
+
+  - id: criterion_group
+    role: system_orchestration_layer
+    economic_function:
+      - compound_learning
+      - improve_pipeline_quality
+      - maintain_governance
+      - protect_alignment
+      - improve_system_throughput
+
+primary_variables:
+  fund_size:
+    value: TBD_PRIVATE_OR_SCENARIO_SPECIFIC
+    public_repo_rule: Do not store confidential fund commitments here unless repo visibility is private.
+
+  accepted_opportunities:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: Number of ideas or candidates accepted into the formation funnel.
+
+  validation_failures:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: Opportunities killed or paused after validation.
+
+  graduates:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: NewCos that complete formation and spin out.
+
+  target_entry_ownership:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: Ownership targeted by SwiftVC at initial investment or spinout.
+
+  retained_exit_ownership:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: Expected ownership after dilution and follow-on financing.
+
+  foundry_services_per_company:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: Services revenue or budget associated with formation work.
+
+  aggregate_portfolio_enterprise_value:
+    value: TBD_SCENARIO_SPECIFIC
+    definition: Total value produced by surviving portfolio companies.
+
+core_metrics:
+  - cost_per_validated_no
+  - cost_per_validated_yes
+  - validation_to_investment_conversion_rate
+  - investment_to_formation_conversion_rate
+  - formation_to_graduation_rate
+  - time_to_graduation
+  - entry_ownership
+  - retained_ownership
+  - follow_on_raise_rate
+  - portfolio_enterprise_value
+  - TVPI
+  - DPI
+  - MOIC
+  - markup_rate
+
+alignment_rules:
+  - Service revenue is acceptable only when it improves company formation quality and fund outcomes.
+  - SwiftVC investment decisions must be economically independent from Axiom services revenue.
+  - Fast failure is economically valuable when it preserves capital and founder time.
+  - The model should optimize for retained ownership in meaningful outcomes, not only company count.
+  - Subsidies, if used, should improve signal quality, conversion, or formation quality rather than merely reducing friction.
+
+sensitive_data_policy:
+  never_commit_to_public_repo:
+    - LP_names_or_commitments
+    - live_deal_terms
+    - private_cap_tables
+    - founder_personal_data
+    - customer_interview_transcripts
+    - confidential_fund_models
+    - non_public_portfolio_performance
+
+next_private_files_if_repo_becomes_private:
+  - economics/scenarios/base.yaml
+  - economics/scenarios/conservative.yaml
+  - economics/scenarios/upside.yaml
+  - economics/ownership-dilution.yaml
+  - economics/services-revenue.yaml
+  - economics/portfolio-construction.yaml

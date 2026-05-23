@@ -1,0 +1,110 @@
+schema_version: 0.1.0
+namespace: criterion_core.governance.greenlights
+purpose: >
+  Defines the core stage gates that govern whether an opportunity advances through
+  Fetch Happens, SwiftVC, Axiom Foundry, and NewCo graduation.
+
+principles:
+  - No one entity can force the others downstream.
+  - Positive signal does not automatically equal investment readiness.
+  - Investment intent does not automatically equal formation readiness.
+  - Foundry services must improve company formation quality and fund outcomes.
+  - Every gate must separate evidence from inference.
+
+required_greenlights:
+  - id: fetch_signal_greenlight
+    owner: fetch_happens
+    question: Did the market show enough demand to justify further evaluation?
+    required_artifact: signal_dossier
+    required_evidence:
+      - target_customer_defined
+      - problem_hypothesis_tested
+      - validation_events_logged
+      - signal_strength_assessed
+      - recommendation_made
+    allowed_decisions:
+      - advance_to_swiftvc_screen
+      - retest
+      - pause
+      - kill
+    guardrail: >
+      A positive signal advances the opportunity to investment screening; it does
+      not automatically trigger a term sheet.
+
+  - id: swiftvc_investment_greenlight
+    owner: swiftvc
+    question: Is this opportunity worth first-check capital?
+    required_artifact: investment_memo
+    required_evidence:
+      - signal_dossier_reviewed
+      - venture_potential_assessed
+      - founder_or_idea_person_fit_assessed
+      - ownership_logic_defined
+      - key_risks_identified
+      - formation_dependency_identified
+    allowed_decisions:
+      - term_sheet_intent
+      - request_more_validation
+      - defer
+      - decline
+    guardrail: >
+      SwiftVC must underwrite the investment independently and cannot rely on
+      Foundry services revenue as the reason to advance.
+
+  - id: axiom_formation_greenlight
+    owner: axiom_foundry
+    question: Can this be responsibly formed into a fundable company?
+    required_artifact: formation_plan
+    required_evidence:
+      - active_constraint_identified
+      - formation_scope_defined
+      - delivery_capacity_confirmed
+      - formation_objectives_defined
+      - budget_and_use_of_proceeds_mapped
+      - graduation_criteria_defined
+    allowed_decisions:
+      - approve_formation_package
+      - rescope
+      - request_more_signal
+      - decline
+    guardrail: >
+      Axiom must confirm that the services are necessary, priced responsibly, and
+      likely to increase formation quality.
+
+  - id: dual_signature_greenlight
+    owner: swiftvc_and_axiom_foundry
+    question: Have the investment documents and services agreement both been accepted?
+    required_artifact: joint_offer_packet
+    required_evidence:
+      - investment_documents_ready
+      - services_agreement_ready
+      - use_of_proceeds_explained
+      - founder_or_idea_person_understands_tradeoffs
+      - conflicts_disclosed_where_applicable
+    allowed_decisions:
+      - begin_swiftvc_c7_and_axiom_c7
+      - revise_offer
+      - abandon_offer
+    guardrail: >
+      The combined offer must be clear that capital and formation support are
+      intended to improve company outcomes, not to create circular fee extraction.
+
+  - id: graduation_greenlight
+    owner: axiom_foundry
+    question: Is the NewCo ready to leave the Foundry and operate independently?
+    required_artifact: graduation_packet
+    required_evidence:
+      - product_or_mvp_status_documented
+      - customer_pipeline_documented
+      - current_constraint_identified
+      - operating_owner_defined
+      - fundraising_or_growth_plan_defined
+      - unresolved_risks_documented
+    allowed_decisions:
+      - graduate
+      - extend_formation
+      - pivot
+      - wind_down
+    guardrail: >
+      Graduation means the company is ready to face market discipline; it does
+      not mean the company is guaranteed to succeed.

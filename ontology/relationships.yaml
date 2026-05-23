@@ -1,0 +1,137 @@
+schema_version: 0.1.0
+namespace: criterion_core.relationships
+purpose: >
+  Defines canonical relationships among Criterion ecosystem entities, artifacts,
+  evidence objects, operating states, and lifecycle events.
+
+relationships:
+  - id: idea_person_generates_insight
+    subject: idea_person
+    predicate: generates
+    object: insight
+    definition: >
+      The idea person contributes market, domain, operator, technical, or customer
+      insight that may be worth validating.
+
+  - id: fetch_tests_market_signal
+    subject: fetch_happens
+    predicate: tests
+    object: market_signal
+    definition: >
+      Fetch Happens runs validation work to determine whether the market cares
+      enough to justify further formation effort.
+
+  - id: validation_event_supports_signal
+    subject: validation_event
+    predicate: supports
+    object: market_signal
+    definition: >
+      A validation event contributes evidence to the overall market signal.
+
+  - id: signal_advances_opportunity
+    subject: market_signal
+    predicate: advances
+    object: opportunity
+    definition: >
+      A strong enough signal can move an opportunity from validation into
+      SwiftVC investment screening.
+    guardrail: >
+      Signal advancement does not automatically create a term sheet.
+
+  - id: swiftvc_underwrites_opportunity
+    subject: swiftvc
+    predicate: underwrites
+    object: opportunity
+    definition: >
+      SwiftVC evaluates signal quality, venture potential, ownership logic,
+      formation readiness, and return relevance.
+
+  - id: swiftvc_issues_term_sheet_intent
+    subject: swiftvc
+    predicate: issues
+    object: term_sheet_intent
+    definition: >
+      SwiftVC indicates willingness to offer first-check capital subject to
+      formation scope, diligence, and required agreements.
+
+  - id: axiom_scopes_formation
+    subject: axiom_foundry
+    predicate: scopes
+    object: formation_plan
+    definition: >
+      Axiom Foundry determines whether and how a positive-signal opportunity
+      can be responsibly formed into a fundable company.
+
+  - id: axiom_forms_company
+    subject: axiom_foundry
+    predicate: forms
+    object: newco
+    definition: >
+      Axiom Foundry delivers company formation work that helps a NewCo become
+      independent, structured, and fundable.
+
+  - id: newco_has_constraint
+    subject: newco
+    predicate: has_active_constraint
+    object: constraint
+    definition: >
+      Each NewCo should have one primary active constraint at a time.
+
+  - id: task_maps_to_stage
+    subject: task
+    predicate: maps_to
+    object: stage
+    definition: >
+      Every task must be classified by operating stage before it is prioritized.
+
+  - id: task_relieves_constraint
+    subject: task
+    predicate: relieves
+    object: constraint
+    definition: >
+      Work is preferred when it directly relieves the active constraint.
+
+  - id: stage_belongs_to_column
+    subject: stage
+    predicate: belongs_to
+    object: column
+    definition: >
+      Every operating stage belongs to Revenue Discovery, Product System,
+      or Revenue Capture.
+
+  - id: artifact_enables_gate
+    subject: artifact
+    predicate: enables
+    object: gate
+    definition: >
+      Required artifacts provide the evidence needed to advance a governance gate.
+
+  - id: newco_graduates_from_foundry
+    subject: newco
+    predicate: graduates_from
+    object: axiom_foundry
+    definition: >
+      The NewCo leaves the Foundry operating environment and becomes responsible
+      for independent execution.
+
+  - id: swiftvc_retains_ownership
+    subject: swiftvc
+    predicate: retains
+    object: ownership_position
+    definition: >
+      SwiftVC maintains economic exposure through the long-tail venture lifecycle.
+
+  - id: follow_on_investor_funds_newco
+    subject: follow_on_investor
+    predicate: funds
+    object: newco
+    definition: >
+      A downstream investor provides capital after formation, traction, or
+      fundability milestones are achieved.
+
+required_relationship_fields:
+  - id
+  - subject
+  - predicate
+  - object
+  - definition

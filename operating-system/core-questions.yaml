@@ -1,0 +1,97 @@
+schema_version: 0.1.0
+system: criterion_operating_system
+purpose: >
+  Defines the three canonical questions used to evaluate every entity,
+  workstream, startup, investment decision, and operating initiative.
+
+core_questions:
+  - id: customer_demand
+    question: Do customers want it?
+    column: A
+    column_name: Revenue Discovery
+    practical_meaning: >
+      Is there real demand, urgency, willingness to engage, usage, payment,
+      or another credible market behavior signal?
+    strongest_evidence:
+      - paid_commitment
+      - signed_loi
+      - active_usage
+      - repeat_engagement
+      - qualified_pipeline
+      - direct_customer_behavior
+    weak_evidence:
+      - compliments
+      - founder_conviction
+      - generic_survey_interest
+      - internal_excitement
+      - unsupported_market_size_claims
+
+  - id: product_system
+    question: Can we build it?
+    column: B
+    column_name: Product System
+    practical_meaning: >
+      Can the company deliver the promised outcome in a technically,
+      operationally, economically, and legally sustainable way?
+    strongest_evidence:
+      - working_mvp
+      - clear_architecture
+      - reliable_delivery_process
+      - known_unit_costs
+      - repeatable_operating_cadence
+      - defined_scope_and_tradeoffs
+    weak_evidence:
+      - prototype_without_delivery_path
+      - vague_technical_claims
+      - roadmap_without_resourcing
+      - custom_services_disguised_as_product
+
+  - id: revenue_capture
+    question: Can we sell it?
+    column: C
+    column_name: Revenue Capture
+    practical_meaning: >
+      Can the company convert demand into revenue, pilots, contracts,
+      usage, retention, funding, or portfolio value through a repeatable motion?
+    strongest_evidence:
+      - closed_revenue
+      - repeatable_sales_motion
+      - paid_pilots
+      - expansion_or_retention
+      - credible_term_sheet
+      - follow_on_investor_interest
+    weak_evidence:
+      - one_off_relationship_sale
+      - non-economic_interest
+      - undisciplined_marketing_activity
+      - pipeline_without_conversion
+
+entity_translation:
+  fetch_happens:
+    own_question_focus: Can Fetch sell and deliver credible validation studies?
+    primary_newco_question_supported: Do customers want it?
+    canonical_output: Signal Dossier
+
+  axiom_foundry:
+    own_question_focus: Can Axiom sell and deliver repeatable company formation?
+    primary_newco_question_supported: Can we build it?
+    secondary_newco_question_supported: Can we sell it?
+    canonical_output: Formation Plan and Graduation Packet
+
+  swiftvc:
+    own_question_focus: Can SwiftVC raise, deploy, manage, and return first-check capital?
+    investment_question: Is this opportunity worth funding, and can SwiftVC own enough of the upside?
+    canonical_output: Investment Memo and investment documents
+
+  criterion_group:
+    own_question_focus: Can the whole system repeatedly manufacture venture-backable companies?
+    canonical_output: Operating system, portfolio learning loops, governance standards
+
+  newco:
+    own_question_focus: Can the startup prove all three questions in market?
+    canonical_output: Independent venture-backable company
+
+operating_rule: >
+  If the answer to a question is unknown, do not pretend it is yes. Classify
+  the uncertainty, identify the active constraint, and run the cheapest credible
+  test that can change the decision.

@@ -1,35 +1,38 @@
 # Criterion Core
 
-Criterion Core is the canonical source-of-truth repository for The Criterion Group ecosystem.
+Criterion Core is the canonical institutional repository for the Criterion Group ecosystem.
 
-The purpose of this repo is to keep the system map, simulator, ecosystem documents, investor narratives, and future AI agents aligned against one shared ontology.
+The ontology files inside `/ontology` define the source of truth for:
+- entities
+- flows
+- economics
+- disclosure rules
+- metrics
 
-## Operating Principle
-
-Do not let rendered artifacts become the source of truth.
-
-The YAML files in `/ontology` define the canonical entities, flows, economics, disclosure rules, and metrics. Everything else should render from, reference, or reconcile back to those files.
+System maps, simulators, LP documents, onboarding flows, dashboards, and future AI agents should reconcile back to these files.
 
 ## Repository Structure
 
 ```text
 criterion-core/
-├── ontology/      # Canonical machine-readable institutional truth
-├── decisions/     # Human-readable decision records and rationale
-├── renderers/     # Apps, scripts, and templates that consume the ontology
-└── generated/     # Rendered outputs produced from the ontology
+├── ontology/
+├── decisions/
+├── renderers/
+└── generated/
 ```
 
-## Alignment Rule
+## Operating Discipline
 
-When the system map, simulator, or ecosystem document disagree, update the ontology first, then regenerate or revise the artifact.
+When artifacts disagree:
+1. Update the ontology first.
+2. Regenerate downstream artifacts.
+3. Record material changes in `/decisions`.
 
-## Current Status
+## Current Focus
 
-Schema version: `0.1.0`
+- Align system map with ontology
+- Align simulator assumptions with economics YAML
+- Build formal institutional vocabulary
+- Reduce semantic drift across artifacts
 
-This is the initial scaffold. The next step is to extract assumptions from:
-
-1. `criterion-group-system-map.html`
-2. `criterion-group-simulator_2.jsx`
-3. `Criterion Ecosystem Document Map May 2026`
+Schema version: 0.1.0

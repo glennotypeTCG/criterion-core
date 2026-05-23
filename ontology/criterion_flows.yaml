@@ -1,0 +1,17 @@
+schema_version: 0.1.0
+
+flows:
+  - id: validated_deal_flow
+    from: fetch_happens
+    to: swift_vc
+    type: formation
+
+  - id: signal_without_builder
+    from: fetch_happens
+    to: axiom_foundry
+    type: formation
+
+  - id: capital_deployment
+    from: swift_vc
+    to: portfolio_companies
+    type: capital

@@ -1,0 +1,116 @@
+schema_version: 0.1.0
+system: criterion_operating_system
+purpose: >
+  Defines the constraint-led operating discipline used by Criterion Group,
+  Fetch Happens, Axiom Foundry, SwiftVC, and NewCos.
+
+principle:
+  statement: >
+    At any moment, a company or workstream has one primary constraint. Improving
+    anything outside the active constraint rarely moves the system forward.
+  operating_rule: >
+    If a task does not relieve the current constraint, defer it.
+
+common_constraints:
+  - id: demand
+    name: Demand
+    mapped_column: A
+    mapped_stage: 2
+    question: Do customers want it?
+    typical_owner: Fetch Happens
+    evidence_needed:
+      - real_customer_problem
+      - buyer_urgency
+      - customer_behavior
+      - willingness_to_pay_signal
+    premature_work_to_avoid:
+      - product_development
+      - scaling_engineering
+      - advanced_infrastructure
+      - brand_expansion_without_signal
+
+  - id: product
+    name: Product
+    mapped_column: B
+    mapped_stage: 4
+    question: Can we build it?
+    typical_owner: Axiom Foundry
+    evidence_needed:
+      - defined_scope
+      - viable_architecture
+      - delivery_path
+      - unit_cost_visibility
+      - MVP_or_working_prototype
+    premature_work_to_avoid:
+      - scaling_sales_team
+      - aggressive_paid_marketing
+      - complex_partnerships_before_delivery_reliability
+
+  - id: sales
+    name: Sales
+    mapped_column: C
+    mapped_stage: 6
+    question: Can we sell it?
+    typical_owner: NewCo leadership with support from Axiom Foundry and SwiftVC
+    evidence_needed:
+      - repeatable_sales_motion
+      - qualified_pipeline
+      - pricing_validation
+      - conversion_data
+      - closed_revenue_or_pilots
+    premature_work_to_avoid:
+      - unrelated_product_branches
+      - non-core_marketing_experiments
+      - hiring_ahead_of_conversion_evidence
+
+  - id: delivery
+    name: Delivery
+    mapped_column: C
+    mapped_stage: 7
+    question: Can we retain and deliver customer value?
+    typical_owner: NewCo leadership
+    evidence_needed:
+      - customer_success_outcomes
+      - retention
+      - implementation_capacity
+      - delivery_quality
+      - support_process
+    premature_work_to_avoid:
+      - overexpansion_before_delivery_process
+      - unsupported_enterprise_customization
+      - growth_without_customer_success_capacity
+
+constraint_diagnostic:
+  prompt: What is currently limiting the company?
+  allowed_answers:
+    - demand
+    - product
+    - sales
+    - delivery
+
+work_item_required_fields:
+  - work_item
+  - entity
+  - column
+  - stage
+  - current_constraint
+  - constraint_alignment
+  - evidence_required
+  - decision
+  - owner
+  - next_action
+
+constraint_alignment_values:
+  - relieves_constraint
+  - supports_constraint
+  - unrelated_to_constraint
+  - creates_new_constraint
+  - premature
+
+decision_values:
+  - proceed
+  - defer
+  - kill
+  - retest
+  - escalate
+  - reclassify

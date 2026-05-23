@@ -1,0 +1,35 @@
+schema_version: 0.1.0
+
+meta:
+  purpose: Canonical venture portfolio dynamics and survivor compression assumptions.
+  status: draft
+
+portfolio_dynamics:
+  graduation_stage:
+    description: Companies that survive the early formation funnel and receive graduation capital.
+
+  survivor_compression:
+    description: >
+      The model assumes that many graduating companies eventually fail or become economically irrelevant,
+      while a smaller subset produce the majority of long-term value.
+
+  meaningful_survivors:
+    description: >
+      Subset of graduating companies that produce economically meaningful venture outcomes.
+
+  breakout_concentration:
+    description: >
+      A very small number of companies generate the majority of total portfolio returns.
+
+  power_law_behavior:
+    description: >
+      Portfolio returns are intentionally modeled as non-uniform and concentrated.
+
+base_case:
+  graduates: 40
+  meaningful_survivors: 10
+  breakout_companies: 1-2
+  aggregate_terminal_value_m: 1000
+
+stronger_case:
+  aggregate_terminal_value_m: 1200

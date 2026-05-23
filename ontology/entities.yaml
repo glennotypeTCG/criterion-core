@@ -1,0 +1,141 @@
+schema_version: 0.1.0
+namespace: criterion_core.entities
+purpose: >
+  Defines canonical objects in the Criterion ecosystem. These names should be
+  used consistently across docs, schemas, dashboards, simulators, and agents.
+
+entities:
+  - id: criterion_group
+    type: institution
+    display_name: Criterion Group
+    definition: >
+      Ecosystem orchestration layer that owns the company-formation operating
+      system, cross-entity governance, portfolio learning loops, and master narrative.
+    system_role: orchestrator
+
+  - id: fetch_happens
+    type: operating_entity
+    display_name: Fetch Happens
+    definition: >
+      Market signal engine that validates whether customers care before the
+      ecosystem spends expensive formation or build capital.
+    system_role: signal_engine
+
+  - id: axiom_foundry
+    type: operating_entity
+    display_name: Axiom Foundry
+    definition: >
+      Company formation layer that turns validated ideas into structured,
+      venture-backable companies.
+    system_role: formation_layer
+
+  - id: swiftvc
+    type: capital_entity
+    display_name: SwiftVC
+    definition: >
+      Embedded first-check capital layer that invests into qualified opportunities
+      emerging from the formation system and manages long-tail portfolio outcomes.
+    system_role: capital_layer
+
+  - id: newco
+    type: startup
+    display_name: NewCo
+    definition: >
+      A formed startup that must ultimately prove customer demand, product delivery,
+      and repeatable revenue capture in the market.
+    system_role: operating_company
+
+  - id: idea_person
+    type: participant
+    display_name: Idea Person
+    definition: >
+      A person with market insight, problem conviction, or domain expertise who
+      may not yet be a conventional founder or formed company.
+    system_role: insight_source
+
+  - id: customer
+    type: market_actor
+    display_name: Customer
+    definition: >
+      The buyer, user, sponsor, or stakeholder whose behavior determines whether
+      a problem and solution are commercially meaningful.
+    system_role: demand_source
+
+  - id: lp
+    type: capital_provider
+    display_name: Limited Partner
+    definition: >
+      Investor or capital provider evaluating whether SwiftVC offers attractive
+      exposure to a proprietary company-formation pipeline.
+    system_role: fund_capital_source
+
+  - id: follow_on_investor
+    type: capital_provider
+    display_name: Follow-On Investor
+    definition: >
+      Investor who may provide capital after a NewCo graduates from the Foundry
+      or demonstrates sufficient progress.
+    system_role: downstream_capital_source
+
+  - id: market_signal
+    type: evidence_object
+    display_name: Market Signal
+    definition: >
+      Evidence that customers care, demonstrated through behavior stronger than
+      opinion alone.
+    system_role: evidence
+
+  - id: validation_event
+    type: evidence_object
+    display_name: Validation Event
+    definition: >
+      A discrete customer, market, pricing, outreach, usage, or sales event that
+      contributes evidence to a Signal Dossier.
+    system_role: evidence
+
+  - id: constraint
+    type: operating_object
+    display_name: Constraint
+    definition: >
+      The current primary limitation preventing progress. Work outside the active
+      constraint is usually deferred.
+    system_role: prioritization_object
+
+  - id: stage
+    type: operating_object
+    display_name: Stage
+    definition: >
+      A defined step in the startup operating model, mapped to Revenue Discovery,
+      Product System, or Revenue Capture.
+    system_role: sequencing_object
+
+  - id: artifact
+    type: knowledge_object
+    display_name: Artifact
+    definition: >
+      A required output used to move a decision, handoff, or stage gate forward.
+    system_role: evidence_container
+
+  - id: investment_decision
+    type: governance_object
+    display_name: Investment Decision
+    definition: >
+      A SwiftVC decision about whether capital should be offered, withheld,
+      reserved, followed on, or written down.
+    system_role: capital_governance
+
+  - id: formation_plan
+    type: operating_artifact
+    display_name: Formation Plan
+    definition: >
+      Axiom's plan for converting a positive-signal opportunity into an independent,
+      fundable NewCo.
+    system_role: formation_artifact
+
+  - id: spinout
+    type: transition_event
+    display_name: Spinout
+    definition: >
+      The transition of a NewCo from Foundry-supported formation into independent
+      startup operation.
+    system_role: lifecycle_transition

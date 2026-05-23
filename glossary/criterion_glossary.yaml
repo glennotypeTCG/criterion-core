@@ -1,0 +1,33 @@
+schema_version: 0.1.0
+
+terms:
+  signal:
+    definition: Independent evidence that a market problem exists and that buyers care enough to act.
+
+  validated_demand:
+    definition: Demand confirmed through structured third-party validation rather than founder intuition alone.
+
+  fetch_happens:
+    definition: The independent market validation layer within the Criterion ecosystem.
+
+  fir:
+    canonical_term: founder_in_residence
+    definition: Experienced operator capable of building a company from a validated brief.
+
+  spinout:
+    definition: The transition from Foundry-supported operation into an independent company.
+
+  graduation:
+    definition: The stage at which a company survives the early formation funnel and receives graduation capital.
+
+  portfolio_company:
+    definition: A company funded or formed through the Criterion ecosystem.
+
+  signal_database:
+    definition: The accumulating intelligence asset built from studies, outcomes, pricing, and operator patterns.
+
+  independent_validation:
+    definition: Market validation performed without the founder directly influencing respondents.
+
+  thesis_intelligence:
+    definition: Investment and operating insights derived from aggregated signal data.

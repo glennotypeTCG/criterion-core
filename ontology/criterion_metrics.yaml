@@ -2,10 +2,19 @@ schema_version: 0.1.0
 
 metrics:
   signal_strength:
-    description: composite validation confidence score
+    category: validation
+    description: market validation confidence score
 
   graduation_rate:
+    category: portfolio
     formula: graduates / accepted_companies
 
   lp_moic:
-    formula: distributions / paid_in_capital
+    category: fund_returns
+    formula: lp_distributions / paid_in_capital
+
+  gp_total_revenue:
+    category: platform_revenue
+
+  signal_database_growth:
+    category: moat

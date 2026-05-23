@@ -1,0 +1,36 @@
+schema_version: 0.1.0
+
+meta:
+  purpose: Canonical decision thresholds and escalation gates.
+  status: draft
+
+thresholds:
+  validation_threshold:
+    owner: fetch_happens
+    description: Minimum signal confidence required for investment review eligibility.
+    status: undefined
+
+  investment_threshold:
+    owner: swift_vc
+    description: Minimum conviction required before first-check deployment.
+    status: undefined
+
+  build_threshold:
+    owner: axiom_foundry
+    description: Minimum signal and operator alignment required for co-build engagement.
+    status: undefined
+
+  spinout_threshold:
+    owner: axiom_foundry
+    description: Minimum operational readiness required before company independence.
+    status: undefined
+
+  referral_threshold:
+    owner: preferred_partners
+    description: Conditions under which companies are routed into the partner network.
+    status: undefined
+
+  disclosure_threshold:
+    owner: criterion_group
+    description: Rules controlling which audiences gain visibility into deeper system layers.
+    status: active

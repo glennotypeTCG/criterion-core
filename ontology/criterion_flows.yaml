@@ -1,17 +1,118 @@
 schema_version: 0.1.0
 
+meta:
+  purpose: Canonical directed relationships between system entities.
+  flow_types:
+    - formation
+    - capital
+    - data
+    - referral
+
 flows:
   - id: validated_deal_flow
     from: fetch_happens
     to: swift_vc
     type: formation
+    label: validated deal flow
+    description: >
+      Opportunities that achieve sufficient independent signal become eligible
+      for Swift VC review.
 
   - id: signal_without_builder
     from: fetch_happens
     to: axiom_foundry
     type: formation
+    label: signal without builder
+    description: >
+      Strong signals without an active founder may be routed to Axiom Foundry
+      for co-build and FIR matching.
+
+  - id: fir_execution_capability
+    from: founders_in_residence
+    to: axiom_foundry
+    type: formation
+    label: execution capability
+    description: >
+      Founders-in-Residence supply execution capability for validated briefs.
+
+  - id: self_generated_ideas
+    from: founders_in_residence
+    to: fetch_happens
+    type: formation
+    label: self-generated ideas
+    description: >
+      FIRs may validate their own concepts through the FetchHappens process.
 
   - id: capital_deployment
     from: swift_vc
     to: portfolio_companies
     type: capital
+    label: first-check capital
+    description: >
+      Swift VC deploys pre-seed capital into validated portfolio companies.
+
+  - id: lp_capital
+    from: limited_partners
+    to: swift_vc
+    type: capital
+    label: fund capital
+    description: >
+      LPs provide committed capital to the Swift VC fund structure.
+
+  - id: lp_reporting
+    from: swift_vc
+    to: limited_partners
+    type: capital
+    label: distributions and reporting
+    description: >
+      LPs receive reporting, distributions, and portfolio updates.
+
+  - id: signal_capture
+    from: fetch_happens
+    to: signal_database
+    type: data
+    label: study outputs
+    description: >
+      Every validation study contributes structured signal data to the Signal
+      Database.
+
+  - id: portfolio_outcomes
+    from: portfolio_companies
+    to: signal_database
+    type: data
+    label: outcomes data
+    description: >
+      Portfolio company outcomes improve the quality and predictive value of
+      the Signal Database.
+
+  - id: thesis_intelligence
+    from: signal_database
+    to: swift_vc
+    type: data
+    label: thesis intelligence
+    description: >
+      Accumulated signal intelligence informs future investment decisions.
+
+  - id: fir_matching_intelligence
+    from: signal_database
+    to: axiom_foundry
+    type: data
+    label: FIR placement intelligence
+    description: >
+      Signal patterns and operator profiles improve founder-company matching.
+
+  - id: partner_referrals
+    from: portfolio_companies
+    to: preferred_partners
+    type: referral
+    label: ecosystem referrals
+    description: >
+      Portfolio companies may engage preferred ecosystem partners after spinout.
+
+  - id: repeat_validation_customers
+    from: portfolio_companies
+    to: fetch_happens
+    type: referral
+    label: repeat validation customers
+    description: >
+      Portfolio companies may return for additional market validation work.

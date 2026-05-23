@@ -24,9 +24,9 @@ levels:
 audience_rules:
   panel_members:
     level: level_1
-    visible_entities:
+    visible_nodes:
       - candid_voices
-    hidden_entities:
+    hidden_nodes:
       - swift_vc
       - axiom_foundry
       - signal_database
@@ -34,7 +34,7 @@ audience_rules:
 
   active_founders:
     level: level_2
-    visible_entities:
+    visible_nodes:
       - fetch_happens
       - swift_vc
       - axiom_foundry
@@ -42,14 +42,14 @@ audience_rules:
 
   idea_only:
     level: level_2
-    visible_entities:
+    visible_nodes:
       - fetch_happens
       - axiom_foundry
       - founders_in_residence
 
   founders_in_residence:
     level: level_2
-    visible_entities:
+    visible_nodes:
       - axiom_foundry
       - fetch_happens
       - swift_vc
@@ -57,7 +57,7 @@ audience_rules:
 
   limited_partners:
     level: level_3
-    visible_entities:
+    visible_nodes:
       - swift_vc
       - fetch_happens
       - signal_database
@@ -65,7 +65,7 @@ audience_rules:
 
   failed_founders:
     level: advocate
-    visible_entities:
+    visible_nodes:
       - fetch_happens
       - candid_voices
 

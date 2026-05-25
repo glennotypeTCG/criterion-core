@@ -1,0 +1,309 @@
+schema_version: 0.1.0
+ontology_id: neural_revenue_architecture
+status: active_operating_overlay
+last_updated: 2026-05-25
+
+canonical_sentence: >-
+  Criterion Group should leverage Neural Revenue Architecture anytime it is trying
+  to move a human being from awareness, uncertainty, or skepticism toward trust,
+  alignment, and committed participation.
+
+short_sentence: >-
+  Use NRA whenever human belief, trust, and commitment progression materially
+  impact the outcome.
+
+purpose: >-
+  Neural Revenue Architecture is the cross-ecosystem human-state progression
+  overlay for Criterion Group. It governs how Criterion, FetchSignal, Candid
+  Voices, Axiom Foundry, and SwiftVC design communications, pitches, pages,
+  decks, sequences, and interactions when the desired outcome depends on moving
+  a person from one cognitive or relational state to another.
+
+what_nra_is:
+  - human_state_transition_framework
+  - buyer_and_participant_state_orchestration_system
+  - trust_and_cognitive_load_governance_layer
+  - cross_brand_operating_overlay
+  - preflight_review_system_for_human_facing_artifacts
+
+what_nra_is_not:
+  - generic_brand_guideline
+  - logo_or_visual_identity_system
+  - replacement_for_entity_style_guides
+  - permission_to_use_persuasion_everywhere
+  - substitute_for_legal_or_disclosure_review
+  - proof_of_external_scientific_claims_without_verification
+
+core_principle: >-
+  Business communication is still human media consumption. LPs, founders,
+  respondents, recruits, employees, operators, and investors still filter through
+  attention, identity, uncertainty, risk, trust, and cognitive-load heuristics.
+
+operating_modes:
+  evaluation:
+    definition: >-
+      Active before the first voluntary engagement. The human is assessing the
+      stimulus and deciding whether the subject is worth attention.
+    appropriate_behaviors:
+      - identity_resonance
+      - sharper_pattern_interrupts
+      - clear_problem_language
+      - low_friction_next_step
+      - emotionally_legible_tension
+      - single_primary_cta
+    prohibited_behaviors:
+      - dense_explanation_before_identity_resonance
+      - multiple_equal_ctas
+      - company_first_language
+      - trust_mode_documents_before_interest_exists
+  transition:
+    definition: >-
+      Active after first voluntary engagement and before genuine fit or trust has
+      been established. The human is deciding whether deeper engagement is safe
+      and worth the effort.
+    appropriate_behaviors:
+      - diagnostic_questions
+      - expectation_setting
+      - precise_language_capture
+      - low_pressure_next_step
+      - pre_meeting_agenda
+    prohibited_behaviors:
+      - premature_solutioning
+      - forced_closing
+      - heavy_social_proof_as_pressure
+      - overproduced_credibility_theater
+  trust:
+    definition: >-
+      Active once the human has engaged voluntarily and is now assessing risk,
+      credibility, alignment, and relationship safety.
+    appropriate_behaviors:
+      - clarity_over_persuasion
+      - their_language
+      - heard_document
+      - situation_frame
+      - decision_matrix
+      - transparent_assumptions
+      - precise_next_steps
+    prohibited_behaviors:
+      - persuasion_pressure
+      - artificial_urgency
+      - scarcity_tactics
+      - hype_language
+      - solving_before_confirming_the_frame
+  institutional:
+    definition: >-
+      Active when legal, procurement, diligence, governance, underwriting, or
+      organizational risk is the dominant blocker.
+    appropriate_behaviors:
+      - calm_specificity
+      - assumption_register
+      - risk_resolution_language
+      - direct_answers
+      - documentation
+      - no_surprises
+    prohibited_behaviors:
+      - emotional_overreach
+      - handwaving
+      - concealment_of_uncertainty
+      - vague_commitments
+  outcome:
+    definition: >-
+      Active after commitment when the human is monitoring whether the promised
+      value is becoming real.
+    appropriate_behaviors:
+      - outcome_tracking
+      - milestone_mapping
+      - progress_against_original_commitment
+      - fast_escalation
+      - honest_status_updates
+    prohibited_behaviors:
+      - success_theater
+      - usage_metrics_without_outcome_context
+      - hiding_delays
+  partnership:
+    definition: >-
+      Active when the relationship has experienced real value and may expand,
+      renew, refer, invest again, or collaborate more deeply.
+    appropriate_behaviors:
+      - earned_expansion
+      - strategic_context
+      - candor
+      - long_term_cadence
+      - original_outcome_reference
+    prohibited_behaviors:
+      - treating_expansion_as_a_new_cold_sale
+      - restarting_persuasion_without_respect_for_history
+      - ignoring_prior_commitments
+
+standard_phases:
+  - phase: 1
+    name: latent_awareness
+    expert_role: Signal Architect
+    mode: evaluation
+    job: Trigger relevant existence in the correct environment.
+  - phase: 2
+    name: problem_recognition
+    expert_role: Narrative Engineer
+    mode: evaluation
+    job: Create the that's-me moment and explain the mechanism with minimal cognitive load.
+  - phase: 3
+    name: active_consideration
+    expert_role: Diagnostic Interviewer
+    mode: transition
+    job: Diagnose fit and capture the human's language before deeper routing.
+  - phase: 4
+    name: problem_decomposition
+    expert_role: Problem Architect
+    mode: trust
+    job: Make the real problem visible and agreed by both sides.
+  - phase: 5
+    name: solution_alignment
+    expert_role: Value Architect
+    mode: trust
+    job: Align the proposed path to the agreed situation, outcome, and decision criteria.
+  - phase: 6
+    name: risk_resolution
+    expert_role: Risk Resolver
+    mode: institutional
+    job: Move through diligence, procurement, legal, allocation, or governance friction without reopening trust.
+  - phase: 7
+    name: value_activation
+    expert_role: Value Activator
+    mode: outcome
+    job: Deliver first measurable value against the originally named outcome.
+  - phase: 8
+    name: growth_partnership
+    expert_role: Growth Partner
+    mode: partnership
+    job: Earn renewal, expansion, referral, or deeper participation through delivered value.
+
+criterion_entity_stack:
+  criterion_group:
+    role: ecosystem_coherence_layer
+    nra_application: >-
+      Use NRA for system narrative, internal alignment, employee recruiting,
+      partner conversations, and cross-entity investor materials.
+  fetchsignal:
+    role: market_signal_engine
+    formerly_or_related_to:
+      - Fetch Happens
+    nra_application: >-
+      Use NRA to move Idea Principals from suspicion, doubt, or overconfidence
+      into trust in independent market signal.
+  candid_voices:
+    role: independent_respondent_trust_layer_under_fetchsignal
+    parent_layer: fetchsignal
+    nra_application: >-
+      Use NRA to make respondents feel safe, respected, unpressured, anonymous,
+      and useful enough to give honest signal.
+    respondent_surface_rule: >-
+      Candid Voices should generally govern respondent-facing language. Do not
+      publicly frame respondents as helping startup validation when that creates
+      bias or trust damage.
+  axiom_foundry:
+    role: company_formation_layer
+    nra_application: >-
+      Use NRA to move high-signal founders and operators from interest into
+      confidence that structured formation will protect their insight and improve
+      the odds of a venture-backable company.
+  swiftvc:
+    role: embedded_first_check_capital_layer
+    nra_application: >-
+      Use NRA to move LPs, co-investors, follow-on investors, and founders from
+      skepticism about an unusual formation model into trust in the economic,
+      governance, and portfolio-construction logic.
+
+invoke_when_artifact_type:
+  ads: true
+  landing_pages: true
+  pitch_decks: true
+  sales_decks: true
+  lp_memos: true
+  founder_recruiting: true
+  employee_recruiting: true
+  investor_updates: true
+  outbound_sequences: true
+  respondent_invites: true
+  survey_landing_pages: true
+  onboarding_flows: true
+  proposals: true
+  partnership_materials: true
+  internal_alignment_memos: conditional
+  purely_mechanical_edits: false
+  data_schema_edits: false
+
+artifact_review_questions:
+  - Who is the human?
+  - What do they already believe?
+  - What are they uncertain or skeptical about?
+  - What state transition are we trying to create?
+  - What mode are they in?
+  - What phase are they in, if the eight-phase model applies?
+  - What would make them feel seen?
+  - What would increase trust?
+  - What would destroy trust?
+  - Is the ask earned?
+  - What can be removed?
+  - Which Criterion entity should speak?
+
+clarity_tools:
+  heard_document:
+    use_when: After substantive voluntary interaction where the other party's language, goals, constraints, or next step must be preserved.
+    mode: transition_or_trust
+  one_page_situation_frame:
+    use_when: Before proposing a solution, investment, formation path, or commitment that depends on shared diagnosis.
+    mode: trust
+  decision_matrix:
+    use_when: Multiple options or stakeholders may collapse to status quo unless decision criteria are made visible.
+    mode: trust
+  mutual_action_plan:
+    use_when: Commitment requires steps from both sides and should not feel like a vendor-imposed close plan.
+    mode: trust_or_institutional
+  assumption_register:
+    use_when: The recommendation depends on assumptions that should be made explicit to preserve trust.
+    mode: trust_or_institutional
+  pre_meeting_agenda:
+    use_when: A meeting should have one stated decision and no more than three agenda items.
+    mode: transition_or_later
+
+brand_integration:
+  brand_guidelines_job: Protect identity coherence.
+  style_guides_job: Standardize expression.
+  nra_job: Optimize human-state progression.
+  default_hierarchy:
+    - legal_compliance_disclosure
+    - human_trust_and_cognitive_effectiveness
+    - strategic_positioning_and_ontology
+    - entity_specific_brand_guidelines
+    - style_consistency
+  rule: >-
+    NRA should sit alongside brand guidelines as an overlay, not inside a single
+    brand guide. Brand determines who is speaking. NRA determines how that entity
+    should communicate in the current human-state situation.
+
+nra_trace_schema:
+  audience: string
+  current_state: string
+  desired_state_transition: string
+  mode: enum
+  phase: integer_or_null
+  primary_risk: string
+  nra_rule_applied: string
+
+evidence_guardrails:
+  - >-
+    Source materials describe TRIBE v2 as the research foundation for the NRA
+    framework. Before public investor, customer, or scientific claims are made,
+    verify external research facts and licensing language against primary sources.
+  - >-
+    Do not overstate neuroscience certainty. Use NRA as an operating framework
+    for communication design unless claims are externally verified for the exact
+    public use case.
+  - >-
+    Do not use neuroscience language to justify manipulative persuasion in Trust
+    Mode.
+
+canonical_operating_rule: >-
+  Do not merely make artifacts sound better. Make them phase-appropriate,
+  trust-preserving, cognitively lighter, and more likely to move the right human
+  to the right next state.

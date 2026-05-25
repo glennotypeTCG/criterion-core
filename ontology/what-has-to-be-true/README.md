@@ -31,9 +31,17 @@ aligned around the same underlying beliefs.
 
 FetchSignal makes the idea safe to test.
 
-Axiom Foundry makes the idea possible to form.
+SwiftVC turns strong signal into a capital-backed formation opportunity.
 
-SwiftVC makes the formed company worth funding early.
+Axiom Foundry makes that formation process more disciplined, faster, and more likely to produce a venture-backable company than the Idea Principal could create alone.
+
+## Important Clarification
+
+Formation can happen without Axiom Foundry.
+
+Axiom Foundry is not what makes formation possible in the abstract. Its claim is narrower and stronger: Axiom should make formation materially better by adding structure, operating cadence, capital discipline, and investor-readiness support.
+
+SwiftVC plays a critical role at formation because its capital commitment can convert a validated idea from evidence into a funded company-formation moment.
 
 ## Standard Sections
 

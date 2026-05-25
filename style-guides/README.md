@@ -49,10 +49,11 @@ Each Style Guide should answer:
 
 | Style Guide | Applies To | Status |
 |---|---|---|
-| `criterion-group.style-guide.md` | Criterion Group Idea Deck and internal system-facing materials | Planned |
-| `fetchsignal.style-guide.md` | FetchSignal Landing Page, FetchSignal Sales Deck, and FetchSignal Pitch Deck | Planned |
-| `swiftvc.style-guide.md` | SwiftVC Pitch Deck and LP-facing materials | Planned |
-| `axiomfoundry.style-guide.md` | Axiom Foundry Sales Deck and Axiom Foundry Pitch Deck | Planned |
+| `criterion-group.style-guide.md` | Criterion Group Idea Deck and internal system-facing materials | Placeholder |
+| `swiftvc.style-guide.md` | SwiftVC Pitch Deck and LP-facing materials | Placeholder |
+| `fetchsignal.style-guide.md` | FetchSignal Landing Page, FetchSignal Sales Deck, and FetchSignal Pitch Deck | Placeholder |
+| `candid-voices.style-guide.md` | Candid Voices interview, research, and voice-of-customer materials | Placeholder |
+| `axiomfoundry.style-guide.md` | Axiom Foundry Sales Deck and Axiom Foundry Pitch Deck | Placeholder |
 
 ## Relationship to Asset System
 
@@ -94,8 +95,9 @@ Style Guides define how the work should sound, look, and feel.
 style-guides/
   README.md
   criterion-group.style-guide.md
-  fetchsignal.style-guide.md
   swiftvc.style-guide.md
+  fetchsignal.style-guide.md
+  candid-voices.style-guide.md
   axiomfoundry.style-guide.md
 ```
 

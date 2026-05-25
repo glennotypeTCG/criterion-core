@@ -31,6 +31,83 @@ Use this file when reviewing:
 
 ---
 
+# Criterion Group: Three Things to Be Careful Of
+
+Criterion Group depends on a precise claim: distinct entities can coordinate through shared standards and sequencing to create structural advantage, without pretending they are one company, one fund, one data pool, or one guaranteed funnel.
+
+## 1. Implied Common Ownership or Control
+
+### Risk
+
+Criterion Group starts sounding like it owns, controls, or legally represents FetchSignal, SwiftVC, and Axiom Foundry.
+
+This is especially risky around SwiftVC. If SwiftVC is an alliance, capital relationship, or separately governed fund rather than an owned entity, language like "our fund," "Criterion's fund," or "Criterion controls SwiftVC" can create legal, governance, and reliance issues.
+
+### Bright Lines
+
+- Do not imply common ownership unless legally true.
+- Do not imply Criterion controls SwiftVC unless legally true.
+- Do not describe Criterion Group as a holding company, fund manager, venture fund, or legal representative of all capabilities unless documented.
+- Use "distinct entities and relationships designed to work together where appropriate."
+- Avoid "Criterion owns FetchSignal, SwiftVC, and Axiom Foundry."
+- Avoid "Criterion controls SwiftVC."
+- Avoid "Criterion's fund" unless legally true.
+
+### Thesis Risk if Missed
+
+The thesis is coordination without false integration. If Criterion overclaims ownership or control, sophisticated LPs, founders, counsel, and partners will question whether the system is under-documented, misleading, or legally confused.
+
+## 2. Implied Automatic Funnel or Guaranteed Pathway
+
+### Risk
+
+Criterion Group starts sounding like a customer journey where FetchSignal leads automatically to Axiom Foundry or SwiftVC.
+
+That creates problems on all sides:
+
+- FetchSignal customers may think they are being quietly funneled into affiliated services.
+- SwiftVC LPs may think the fund is obligated to invest in internally sourced opportunities.
+- Axiom Foundry may look like required spend rather than value-creating formation support.
+
+### Bright Lines
+
+- Do not tell FetchSignal customers they are entering the Criterion ecosystem.
+- Do not imply that a positive signal guarantees SwiftVC funding, Axiom Foundry support, or admission into any affiliated process.
+- Do not frame referrals as required pathways.
+- Use "a strong signal may create additional options, including independent referrals, formation support, or capital conversations where appropriate."
+- Avoid "strong signal leads to SwiftVC funding."
+- Avoid "FetchSignal customers enter the Criterion ecosystem."
+- Avoid "Axiom is the next step after FetchSignal."
+- Avoid "every positive signal leads to capital."
+
+### Thesis Risk if Missed
+
+The trust model depends on permission, choice, and fit. If the system feels like a disguised funnel, the market will see Criterion as extraction architecture instead of formation architecture.
+
+## 3. Implied Shared Data Pool Without Permission
+
+### Risk
+
+Because the entities are coordinated, people may assume information flows freely across them.
+
+FetchSignal may hold sensitive idea details, interview recordings, ICP lists, transcripts, reports, and early market evidence. If that data moves to SwiftVC, Axiom Foundry, referral providers, or external partners without clear consent, the trust layer collapses.
+
+### Bright Lines
+
+- Do not share customer data, studies, recordings, transcripts, or detailed idea materials across entities by default.
+- A referral, preferred provider introduction, or discount code does not mean the full idea, full study, recordings, or detailed results will be shared.
+- Information should be shared only with permission and only as needed for the agreed next step.
+- Avoid "the Criterion system shares your study with our partners."
+- Avoid "your FetchSignal report will be reviewed by SwiftVC."
+- Avoid "Axiom will receive your study automatically."
+- Avoid "referral partners can access your results."
+
+### Thesis Risk if Missed
+
+Criterion's value comes from trusted sequencing. If customers believe coordination means uncontrolled data sharing, FetchSignal stops being safe, and the whole system loses moral permission to operate.
+
+---
+
 # FetchSignal: Three Things to Be Careful Of
 
 FetchSignal depends on trust.

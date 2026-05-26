@@ -1,0 +1,50 @@
+formation_sequence:
+  thesis: "Too many good ideas die before they become fundable companies"
+
+  governing_principle: "Criterion is not defined by ownership structure. It is defined by coordinated formation"
+
+  operating_sequence:
+    - insight
+    - signal
+    - formation
+    - first_capital
+    - venture_backable_company
+
+  operating_maxim: "Validate first. Form second. Fund third"
+
+  sequence_over_labels: true
+
+  collaboration_layers:
+    signal_layer:
+      example: "Fetch Happens"
+      role: "Tests whether the market actually cares before build"
+
+    independent_respondent_layer:
+      example: "Candid Voices"
+      role: "Creates independent market signal so validation is not founder-only"
+
+    formation_layer:
+      example: "Axiom Foundry"
+      role: "Turns validated signal into venture-backable structure"
+
+    first_capital_layer:
+      example: "SwiftVC"
+      role: "Represents the first-capital concept for opportunities that earn the right to move forward"
+
+  audience_paths:
+    idea_principals:
+      cta: "Bring an Idea"
+      entry_point: "signal"
+
+    collaborators_and_capital_partners:
+      cta: "Support the Formation Collaboration"
+      entry_point: "formation_or_first_capital"
+
+  guardrails:
+    do_not_imply:
+      - legal_entity
+      - holdco
+      - parent_company
+      - fund_sponsor
+      - operating_control
+      - securities_offering

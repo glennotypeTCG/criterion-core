@@ -3,16 +3,48 @@ formation_sequence:
 
   governing_principle: "Criterion is not defined by ownership structure. It is defined by coordinated formation"
 
-  operating_sequence:
+  public_sequence:
     - insight
     - signal
     - formation
     - first_capital
     - venture_backable_company
 
-  operating_maxim: "Validate first. Form second. Fund third"
+  operating_sequence:
+    - insight
+    - fetch_happens_validates_signal
+    - swiftvc_issues_first_capital_term_sheet
+    - dual_close
+    - axiom_foundry_forms_company
+    - venture_backable_company
+
+  public_maxim: "Validate first. Form second. Fund third"
+
+  operating_maxim: "Validate signal. Close capital and formation commitment together. Then form the company"
 
   sequence_over_labels: true
+
+  dual_close:
+    definition: "The simultaneous acceptance of the SwiftVC first-capital term sheet and the company's commitment to spend an earmarked portion of that capital with Axiom Foundry under a formation SOW"
+    short_definition: "SwiftVC capital and Axiom formation spend commitment close together"
+    core_line: "The SwiftVC check is not just money. It is a capital-backed formation mandate"
+    happens_after: "Fetch Happens validates enough signal to justify formation"
+    happens_before: "Axiom Foundry begins the required formation work"
+    components:
+      swiftvc_first_capital:
+        role: "Provides first capital once validated signal earns the right to move forward"
+        guardrail: "Should not be described as unrestricted startup cash"
+      axiom_formation_sow:
+        role: "Commits an earmarked portion of SwiftVC capital to required Axiom Foundry formation services"
+        guardrail: "Must be scoped, priced, and justified by better formation outcomes"
+    purpose:
+      - "Prevents Axiom from becoming speculative unpaid consulting"
+      - "Prevents SwiftVC from becoming just another small unrestricted check"
+      - "Connects first capital directly to formation discipline"
+      - "Ensures the company enters Criterion through capital plus formation, not capital alone"
+      - "Creates a capital-backed mandate for Axiom to form the company"
+    trust_risk: "The required Axiom spend can look like fee extraction if not clearly justified"
+    trust_answer: "Formation spend is acceptable only if it increases the probability that SwiftVC owns a better company"
 
   collaboration_layers:
     signal_layer:
@@ -23,22 +55,33 @@ formation_sequence:
       example: "Candid Voices"
       role: "Creates independent market signal so validation is not founder-only"
 
-    formation_layer:
-      example: "Axiom Foundry"
-      role: "Turns validated signal into venture-backable structure"
-
     first_capital_layer:
       example: "SwiftVC"
-      role: "Represents the first-capital concept for opportunities that earn the right to move forward"
+      role: "Issues the first-capital term sheet after validated signal and before Axiom formation work begins"
+
+    formation_layer:
+      example: "Axiom Foundry"
+      role: "Forms the company after the dual close creates a capital-backed formation mandate"
 
   audience_paths:
     idea_principals:
-      cta: "Bring an Idea"
+      public_cta: "Bring an Idea"
       entry_point: "signal"
+      operating_close: "If signal is strong enough, accept SwiftVC first capital and commit the earmarked formation spend with Axiom at the same time"
 
     collaborators_and_capital_partners:
-      cta: "Support the Formation Collaboration"
+      public_cta: "Support the Formation Collaboration"
       entry_point: "formation_or_first_capital"
+      operating_close: "Support a system where validated signal earns first capital, and first capital closes with a required formation commitment"
+
+  terminology:
+    dual_audience_close:
+      meaning: "The public-facing two-way engagement model: Bring an Idea or Support the Formation Collaboration"
+      use_case: "Idea deck, website, broad positioning"
+      warning: "Do not confuse with the operating dual close"
+    operating_dual_close:
+      meaning: "The simultaneous SwiftVC capital acceptance and Axiom formation spend commitment"
+      use_case: "Economics, workflow, term sheet/SOW model, internal operating design"
 
   guardrails:
     do_not_imply:
@@ -48,3 +91,9 @@ formation_sequence:
       - fund_sponsor
       - operating_control
       - securities_offering
+    dual_close_guardrails:
+      - "Do not describe Axiom spend as optional if it is required as part of the formation package"
+      - "Do not describe SwiftVC capital as unrestricted company cash"
+      - "Do not imply the Axiom services commitment exists before validated signal"
+      - "Do not imply acceptance of capital is separate from commitment to formation spend"
+      - "Do not frame required Axiom spend as fee extraction; frame it as required formation work that must improve company quality"

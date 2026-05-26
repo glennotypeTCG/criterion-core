@@ -72,8 +72,30 @@ Criterion explains the sequence. The sub-brands or collaboration layers perform 
 | Collaboration Frame | Criterion Group | Explains why coordinated formation should exist |
 | Signal Layer | Fetch Happens | Tests whether the market cares before build |
 | Independent Respondent Layer | Candid Voices | Creates independent market signal so validation is not founder-only |
-| Formation Layer | Axiom Foundry | Turns signal into structure, operating cadence, MVP direction, GTM logic, and spinout readiness |
 | First-Capital Layer | SwiftVC | Represents the first-capital concept for opportunities that earn the right to move forward |
+| Formation Layer | Axiom Foundry | Forms the company after validated signal and dual close |
+
+## Operating Dual Close
+
+The operating dual close is a core part of the Criterion formation architecture.
+
+Definition:
+
+> The dual close is the simultaneous acceptance of the SwiftVC first-capital term sheet and the company's commitment to spend an earmarked portion of that capital with Axiom Foundry under a formation SOW.
+
+This means:
+
+- SwiftVC capital is not generic startup cash
+- Axiom formation work is not speculative unpaid consulting
+- Formation begins only after validated signal and committed formation capital exist together
+
+The governing line:
+
+> The SwiftVC check is not just money. It is a capital-backed formation mandate.
+
+The trust guardrail:
+
+> Formation spend is acceptable only if it increases the probability that SwiftVC owns a better company.
 
 ## Language Rules
 
@@ -120,7 +142,7 @@ Do not over-repeat legal caveats. Clarify once, then move forward confidently.
 
 ## Audience Close
 
-Criterion has a dual close.
+Criterion has a dual audience close.
 
 **Idea Principal / Operator Close**
 
@@ -133,6 +155,8 @@ For people with insight, domain knowledge, customer pain, or market patterns tha
 > Support the Formation Collaboration
 
 For capital partners, operators, strategic collaborators, market validators, and future formation partners who believe the formation gap matters.
+
+Do not confuse the dual audience close with the operating dual close.
 
 ## Voice Principles
 
@@ -168,6 +192,7 @@ Criterion should not sound:
 - The names may evolve. The sequence matters more than the labels.
 - The legal form may evolve. The formation gap is real.
 - Better inputs before pre-seed should create better pre-seed opportunities.
+- The SwiftVC check is not just money. It is a capital-backed formation mandate.
 
 ## Governance Hierarchy
 
